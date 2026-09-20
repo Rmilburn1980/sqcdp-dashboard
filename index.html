@@ -524,7 +524,7 @@ const DEFAULTS = {
       sub: "Of all site reports",
       color: "#F59E0B"
     }, {
-      label: "Close Rate",
+      label: "Site Close Rate",
       val: "99.7%",
       sub: "323 of 324 closed",
       color: "#10B981"
@@ -534,7 +534,7 @@ const DEFAULTS = {
       sub: "Aug 24 – Mar 25",
       color: "#F59E0B"
     }, {
-      label: "Safety Qube",
+      label: "SafetyQube",
       val: "+22%",
       sub: "Near-miss uplift on launch",
       color: "#10B981"
@@ -634,12 +634,12 @@ const DEFAULTS = {
       neck: 6,
       priority: "Yes"
     }],
-    narrative: "Self-initiated programme. 108 personal near-miss reports raised — 33% of all site reports — with a 99.7% close rate. Safety Qube drove a +22% uplift in near-miss reporting on launch. All 8 QEC assessments across Bays 2, 3, 5, 6, 7 and 8 are now verified directly against source forms. Bay 6 (electrical fitting) assessed 9 Mar 2026: all four exposure regions scored in the Low band (back 18, shoulder 10, wrist 10, neck 4). QEC peak score across all assessed workers remains 36 (shoulder), shared by both Bay 8 tasks — gas installation and front/back panel fitting."
+    narrative: "Self-initiated programme. 108 personal near-miss reports raised, 33% of all site reports, with 107 closed (99.1%). The other one needed investment that was not available because of the site closure, so the risk was managed. The site rate was 99.7% (323 of 324 closed). SafetyQube, an EHS management system, drove a +22% uplift in near-miss reporting on launch. All 8 QEC assessments across Bays 2, 3, 5, 6, 7 and 8 are now verified directly against source forms. Bay 6 (electrical fitting) assessed 9 Mar 2026: all four exposure regions scored in the Low band (back 18, shoulder 10, wrist 10, neck 4). QEC peak score across all assessed workers remains 36 (shoulder), shared by both Bay 8 tasks — gas installation and front/back panel fitting."
   },
   Q: {
     stats: [{
       label: "Programme FPY",
-      val: "46%→100%",
+      val: "50→100%",
       sub: "Full improvement programme",
       color: "#10B981"
     }, {
@@ -747,7 +747,7 @@ const DEFAULTS = {
       issue: "Rail sealing / training deficit",
       status: "Open"
     }],
-    narrative: "Two FPY figures, two bases — both accurate. The headline 46%→100% reflects the full improvement programme from its original baseline. The 84%→96% line below tracks a 12-week snapshot (Wk16–26) used for week-by-week monitoring once the line had already improved substantially. Wk19's apparent dip to 53% was caused by pilot builds being included in that week's data pool; pilot builds were formally excluded from Wk21 (10 pilots) and Wk22 (2 pilots) onward — documented, not reflective of standard production. Stage 6 avg faults per van fell from 54 (Wk16) to 44 (Wk26) — an 18.5% reduction — driven by the morning meeting process, operative accountability and DCR escalation. Stage 6 total: 908 faults YTD, 94% from production; Furniture = 40% of faults."
+    narrative: "Two FPY figures, two bases — both accurate. The headline low 50s→100% reflects the full improvement programme from its original baseline. The 84%→96% line below tracks a 12-week snapshot (Wk16–26) used for week-by-week monitoring once the line had already improved substantially. Wk19's apparent dip to 53% was caused by pilot builds being included in that week's data pool; pilot builds were formally excluded from Wk21 (10 pilots) and Wk22 (2 pilots) onward — documented, not reflective of standard production. Stage 6 avg faults per van fell from 54 (Wk16) to 44 (Wk26) — an 18.5% reduction — driven by the morning meeting process, operative accountability and DCR escalation. Stage 6 total: 908 faults YTD, 94% from production; Furniture = 40% of faults."
   },
   C: {
     stats: [{
@@ -888,12 +888,12 @@ const DEFAULTS = {
       sub: "260 processes — 2 years",
       color: "#E8A838"
     }, {
-      label: "3×3 Start",
+      label: "3x3 Start",
       val: "79%",
       sub: "Avg across 3 roles",
       color: "#F59E0B"
     }, {
-      label: "3×3 Result",
+      label: "3x3 Result",
       val: "100%",
       sub: "All 3 roles in 5 months",
       color: "#10B981"
@@ -942,7 +942,7 @@ const DEFAULTS = {
       before: 33,
       after: 86
     }],
-    narrative: "Skills matrix built on own initiative — from 36% to 86.6% across 260 processes over two years. 3×3 matrix reached 100% in 5 months. Critical SOP coverage: 97.7% across 86 defined critical processes. Used for job rotation design, training investment and absence cover planning."
+    narrative: "Skills matrix built on own initiative — from 36% to 86.6% across 260 processes over two years. 3x3 matrix reached 100% in 5 months. Critical SOP coverage: 97.7% across 86 defined critical processes. Used for job rotation design, training investment and absence cover planning."
   }
 };
 
@@ -2022,7 +2022,7 @@ const pieColors = [C.accent, C.accentL, C.green, C.dim];
 // "Evidence at a Glance" headline stats — drawn from the master portfolio summary.
 const OVERVIEW_STATS = [{
   label: "First Pass Yield",
-  val: "46%→100%",
+  val: "50→100%",
   sub: "Stage 8 EOL PDI",
   color: "#10B981"
 }, {
@@ -2041,7 +2041,7 @@ const OVERVIEW_STATS = [{
   sub: "260 processes — 2 years",
   color: "#E8A838"
 }, {
-  label: "3×3 Programme",
+  label: "3x3 Programme",
   val: "79%→100%",
   sub: "3 roles in 5 months",
   color: "#E8A838"
@@ -2056,7 +2056,7 @@ const OVERVIEW_STATS = [{
   sub: "Per vehicle, 12 months",
   color: "#2E75B6"
 }, {
-  label: "Safety Qube Uplift",
+  label: "SafetyQube Uplift",
   val: "22%",
   sub: "Near-miss reporting uplift",
   color: "#10B981"
@@ -2087,7 +2087,7 @@ function OverviewTab({
     style: {
       color: C.text
     }
-  }, "Richard Milburn"), " — Cell Leader · Consett, County Durham · 21 years' service · December 2004 – May 2026. Select a pillar below, or use the tab bar above, to explore the full evidence behind each achievement — charts, data, process narratives and interview context. All figures are drawn from internal site data.")), /*#__PURE__*/React.createElement("div", {
+  }, "Richard Milburn"), " — Cell Leader · Consett, County Durham · 21 years' service · December 2004 to June 2026. Select a pillar below, or use the tab bar above, to explore the full evidence behind each achievement — charts, data, process narratives and interview context. All figures are drawn from internal site data.")), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "grid",
       gridTemplateColumns: "repeat(auto-fit,minmax(150px,1fr))",
@@ -3889,7 +3889,7 @@ const SCORECARD = [{
   status: "Strong",
   headline: {
     val: "99.7%",
-    label: "Near-miss close rate"
+    label: "Site near-miss close rate"
   },
   metrics: [{
     val: "108",
@@ -3915,7 +3915,7 @@ const SCORECARD = [{
     val: "4",
     label: "Open actions"
   }],
-  note: "FPY programme 46%→100%; Stage-6 faults down 18.5%."
+  note: "FPY programme low 50s→100%; Stage-6 faults down 18.5%."
 }, {
   id: "C",
   title: "Cost",
@@ -3961,7 +3961,7 @@ const SCORECARD = [{
   },
   metrics: [{
     val: "100%",
-    label: "3×3 in 5 months"
+    label: "3x3 in 5 months"
   }, {
     val: "97.7%",
     label: "Critical SOP cover"
