@@ -5,33 +5,34 @@
 <title>Richard Milburn — SQCDP Interview Evidence Portfolio</title>
 
 <style>
-  html, body { margin:0; padding:0; background:#0B1929; }
+  html, body { margin:0; padding:0; background:#070a1a; }
   * { box-sizing: border-box; }
   #root { min-height: 100vh; }
   #loading {
     position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
-    background:#0B1929; color:#64748B; font-family:monospace; font-size:13px; letter-spacing:0.08em;
+    background:#070a1a; color:#8f8eb8; font-family:monospace; font-size:13px; letter-spacing:0.08em;
     flex-direction:column; gap:12px; z-index:9999;
   }
   #loading .spinner {
-    width:28px; height:28px; border:3px solid #1E3A5F; border-top-color:#2E75B6;
+    width:28px; height:28px; border:3px solid #343a7a; border-top-color:#2E75B6;
     border-radius:50%; animation:spin 0.8s linear infinite;
   }
   @keyframes spin { to { transform: rotate(360deg); } }
   #error-overlay {
-    display:none; position:fixed; inset:0; background:#0B1929; color:#E2E8F0;
+    display:none; position:fixed; inset:0; background:#070a1a; color:#f2f1ff;
     font-family:monospace; font-size:13px; padding:40px; z-index:10000; overflow:auto;
   }
   #error-overlay h2 { color:#EF4444; margin-top:0; }
   #error-overlay pre {
-    background:#112240; border:1px solid #1E3A5F; border-radius:8px; padding:16px;
+    background:#12143a; border:1px solid #343a7a; border-radius:8px; padding:16px;
     white-space:pre-wrap; word-break:break-word; color:#F59E0B;
   }
   ::-webkit-scrollbar { height: 8px; width: 8px; }
-  ::-webkit-scrollbar-thumb { background: #1E3A5F; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb { background: #343a7a; border-radius: 4px; }
   ::-webkit-scrollbar-track { background: transparent; }
 </style>
 
+<link rel="stylesheet" href="https://rmilburn1980.github.io/theme.css">
 </head>
 <body><a href="https://rmilburn1980.github.io/" style="display:block;padding:10px 20px;background:#11192B;border-bottom:1px solid #2A3A52;color:#00D9C0;font-size:14px;font-weight:600;text-decoration:none;">&larr; Back to portfolio hub</a>
 
@@ -451,20 +452,20 @@ const {
 } = Recharts;
 // ── PALETTE — Bold livery ─────────────────────────────────────────────────────
 const C = {
-  navy: "#070B14",
-  ink: "#0B1220",
-  card: "#11192B",
-  border: "#2A3A52",
-  accent: "#00D9C0",
-  accentL: "#3DFFE8",
+  navy: "#070a1a",
+  ink: "#090b24",
+  card: "#12143a",
+  border: "#343a7a",
+  accent: "#22d3ee",
+  accentL: "#67e8f9",
   gold: "#FFB800",
   green: "#00E68A",
   red: "#FF3B5C",
   amber: "#FFB800",
   purple: "#A855F7",
-  text: "#F1F5F9",
-  muted: "#8B9CB5",
-  dim: "#5A6B85"
+  text: "#f2f1ff",
+  muted: "#bcbbdc",
+  dim: "#a3a2c8"
 };
 
 // ── SQCDP TABS — Bold livery ──────────────────────────────────────────────────
