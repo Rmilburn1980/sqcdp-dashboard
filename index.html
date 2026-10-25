@@ -65,11 +65,16 @@
   }
   // Safety timeout: if nothing has rendered into #root within 12s, surface a clear message.
   window.__dashboardRendered = false;
-  setTimeout(function () {
-    if (!window.__dashboardRendered) {
-      showError('Dashboard did not finish loading within 12 seconds.\nThis usually means a required script (React / Recharts) failed to load.\nCheck your internet connection and try refreshing.');
-    }
-  }, 12000);
+  // The timer starts once the page has finished downloading, so a slow mobile connection
+  // (the page is about 1.4 MB) is not mistaken for a failure.
+  function armWatchdog() {
+    setTimeout(function () {
+      if (!window.__dashboardRendered) {
+        showError('Dashboard did not start within 12 seconds of the page finishing loading.\nThis usually means a script error, or a browser extension or content blocker stopping the page scripts.\nTry refreshing, or opening the page in a different browser.');
+      }
+    }, 12000);
+  }
+  if (document.readyState === 'complete') { armWatchdog(); } else { window.addEventListener('load', armWatchdog); }
 </script>
 
 <!-- React 18 -->
