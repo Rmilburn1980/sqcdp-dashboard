@@ -644,9 +644,9 @@ const DEFAULTS = {
   },
   Q: {
     stats: [{
-      label: "Mean FPY",
-      val: "68.8%→82.4%",
-      sub: "Before and after the programme",
+      label: "Line FPY",
+      val: "58%→92%",
+      sub: "Sep 24 to Mar 25 average, then Jul 25",
       color: "#10B981"
     }, {
       label: "Wk16–26 Snapshot",
@@ -753,7 +753,7 @@ const DEFAULTS = {
       issue: "Rail sealing / training deficit",
       status: "Open"
     }],
-    narrative: "FPY figures come from two sources. The DMAIC board gives mean FPY of 68.8% before and 82.4% after the programme, with individual weeks at 100%. The tracked Wk16 to Wk26 window shows 84% rising to 96%, with a peak of 100% in week 18; weekly tracking before week 16 was not formally recorded. Wk19's apparent dip to 53% was caused by pilot builds being included in that week's data pool; pilot builds were formally excluded from Wk21 (10 pilots) and Wk22 (2 pilots) onward — documented, not reflective of standard production. Stage 6 avg faults per van fell from 54 (Wk16) to 44 (Wk26) — an 18.5% reduction — driven by the morning meeting process, operative accountability and DCR escalation. Stage 6 total: 908 faults YTD, 94% from production; Furniture = 40% of faults."
+    narrative: "Two FPY sources. The Caravan Combined Performance Tracker (line level, A vans out of PDI as a share of vans out, daily records to 15 July 2025) gives an average of 58% from September 2024 to March 2025 and 92% in July 2025, with two weeks at 100%. The tracked Wk16 to Wk26 window below shows 84% rising to 96%, with a peak of 100% in week 18; the two sources have not been reconciled, and weekly tracking before week 16 was not formally recorded. Wk19's apparent dip to 53% was caused by pilot builds being included in that week's data pool; pilot builds were formally excluded from Wk21 (10 pilots) and Wk22 (2 pilots) onward — documented, not reflective of standard production. Stage 6 avg faults per van fell from 54 (Wk16) to 44 (Wk26) — an 18.5% reduction — driven by the morning meeting process, operative accountability and DCR escalation. Stage 6 total: 908 faults YTD, 94% from production; Furniture = 40% of faults."
   },
   C: {
     stats: [{
@@ -2028,8 +2028,8 @@ const pieColors = [C.accent, C.accentL, C.green, C.dim];
 // "Evidence at a Glance" headline stats — drawn from the master portfolio summary.
 const OVERVIEW_STATS = [{
   label: "First Pass Yield",
-  val: "68.8%→82.4%",
-  sub: "Stage 8 mean, before and after",
+  val: "58%→92%",
+  sub: "Line FPY: Sep 24 to Mar 25 average, then Jul 25",
   color: "#10B981"
 }, {
   label: "Reports Logged",
@@ -3921,7 +3921,7 @@ const SCORECARD = [{
     val: "4",
     label: "Open actions"
   }],
-  note: "Mean FPY 68.8% to 82.4%, peak 100%; Stage-6 faults down 18.5%."
+  note: "Line FPY 58% to 92%, weeks at 100%; Stage-6 faults down 18.5%."
 }, {
   id: "C",
   title: "Cost",
