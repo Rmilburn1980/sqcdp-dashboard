@@ -535,14 +535,14 @@ const DEFAULTS = {
       sub: "323 of 324 closed",
       color: "#10B981"
     }, {
-      label: "Reporting Uplift",
-      val: "200%+",
-      sub: "Aug 24 – Mar 25",
+      label: "People Reporting",
+      val: "22",
+      sub: "Raised reports, Apr 2025 to Mar 2026",
       color: "#F59E0B"
     }, {
-      label: "SafetyQube",
-      val: "+22%",
-      sub: "Near-miss uplift on launch",
+      label: "Top Reporter",
+      val: "108",
+      sub: "Next highest reporter: 52",
       color: "#10B981"
     }, {
       label: "QEC Assessments",
@@ -640,13 +640,13 @@ const DEFAULTS = {
       neck: 6,
       priority: "Yes"
     }],
-    narrative: "Self-initiated programme. 108 personal near-miss reports raised, 33% of all site reports, with 107 closed (99.1%). The other one needed investment that was not available because of the site closure, so the risk was managed. The site rate was 99.7% (323 of 324 closed). SafetyQube, an EHS management system, drove a +22% uplift in near-miss reporting on launch. All 8 QEC assessments across Bays 2, 3, 5, 6, 7 and 8 are now verified directly against source forms. Bay 6 (electrical fitting) assessed 9 Mar 2026: all four exposure regions scored in the Low band (back 18, shoulder 10, wrist 10, neck 4). QEC peak score across all assessed workers remains 36 (shoulder), shared by both Bay 8 tasks — gas installation and front/back panel fitting."
+    narrative: "Self-initiated programme. I raised 108 reports, 33% of the 324 site reports logged from April 2025 to March 2026 (102 near misses and hazards, 6 accident reports). All 108 show as closed in the export. The site rate was 99.7% (323 of 324 closed); the one open record is an accident report raised by someone else, still under investigation. SafetyQube, an EHS management system, logged reports from April 2025, and my own reports rose from 19 in April to June 2025 to 45 in October to December 2025. All 8 QEC assessments across Bays 2, 3, 5, 6, 7 and 8 are now verified directly against source forms. Bay 6 (electrical fitting) assessed 9 Mar 2026: all four exposure regions scored in the Low band (back 18, shoulder 10, wrist 10, neck 4). QEC peak score across all assessed workers remains 36 (shoulder), shared by both Bay 8 tasks — gas installation and front/back panel fitting."
   },
   Q: {
     stats: [{
-      label: "Programme FPY",
-      val: "50→100%",
-      sub: "Full improvement programme",
+      label: "Mean FPY",
+      val: "68.8%→82.4%",
+      sub: "Before and after the programme",
       color: "#10B981"
     }, {
       label: "Wk16–26 Snapshot",
@@ -659,8 +659,8 @@ const DEFAULTS = {
       sub: "Week 18",
       color: "#10B981"
     }, {
-      label: "Sustained FPY",
-      val: "96%+",
+      label: "Wk26 FPY",
+      val: "96%",
       sub: "Week 26",
       color: "#2E75B6"
     }, {
@@ -753,7 +753,7 @@ const DEFAULTS = {
       issue: "Rail sealing / training deficit",
       status: "Open"
     }],
-    narrative: "Two FPY figures, two bases — both accurate. The headline low 50s→100% reflects the full improvement programme from its original baseline. The 84%→96% line below tracks a 12-week snapshot (Wk16–26) used for week-by-week monitoring once the line had already improved substantially. Wk19's apparent dip to 53% was caused by pilot builds being included in that week's data pool; pilot builds were formally excluded from Wk21 (10 pilots) and Wk22 (2 pilots) onward — documented, not reflective of standard production. Stage 6 avg faults per van fell from 54 (Wk16) to 44 (Wk26) — an 18.5% reduction — driven by the morning meeting process, operative accountability and DCR escalation. Stage 6 total: 908 faults YTD, 94% from production; Furniture = 40% of faults."
+    narrative: "FPY figures come from two sources. The DMAIC board gives mean FPY of 68.8% before and 82.4% after the programme, with individual weeks at 100%. The tracked Wk16 to Wk26 window shows 84% rising to 96%, with a peak of 100% in week 18; weekly tracking before week 16 was not formally recorded. Wk19's apparent dip to 53% was caused by pilot builds being included in that week's data pool; pilot builds were formally excluded from Wk21 (10 pilots) and Wk22 (2 pilots) onward — documented, not reflective of standard production. Stage 6 avg faults per van fell from 54 (Wk16) to 44 (Wk26) — an 18.5% reduction — driven by the morning meeting process, operative accountability and DCR escalation. Stage 6 total: 908 faults YTD, 94% from production; Furniture = 40% of faults."
   },
   C: {
     stats: [{
@@ -2028,16 +2028,16 @@ const pieColors = [C.accent, C.accentL, C.green, C.dim];
 // "Evidence at a Glance" headline stats — drawn from the master portfolio summary.
 const OVERVIEW_STATS = [{
   label: "First Pass Yield",
-  val: "50→100%",
-  sub: "Stage 8 EOL PDI",
+  val: "68.8%→82.4%",
+  sub: "Stage 8 mean, before and after",
   color: "#10B981"
 }, {
-  label: "Near-Miss Reporting",
-  val: "~0→48/mo",
-  sub: "Aug 2024 – Mar 2025",
+  label: "Reports Logged",
+  val: "324",
+  sub: "SafetyQube, Apr 2025 to Mar 2026",
   color: "#10B981"
 }, {
-  label: "Incident Close Rate",
+  label: "Site Report Close Rate",
   val: "99.7%",
   sub: "323 of 324 closed",
   color: "#10B981"
@@ -2062,9 +2062,9 @@ const OVERVIEW_STATS = [{
   sub: "Per vehicle, 12 months",
   color: "#2E75B6"
 }, {
-  label: "SafetyQube Uplift",
-  val: "22%",
-  sub: "Near-miss reporting uplift",
+  label: "Top Reporter",
+  val: "108",
+  sub: "Next highest reporter: 52",
   color: "#10B981"
 }, {
   label: "Cross-Functionality",
@@ -2655,7 +2655,7 @@ function QualityTab({
   }, {
     n: "06",
     t: "Result",
-    d: "FPY rose to 100% at peak, sustained 96%+ by Wk26. 98.8% of Stage 6 faults resolved before EOL."
+    d: "FPY peaked at 100% in week 18 and was 96% in week 26. 98.8% of Stage 6 faults resolved before EOL."
   }].map(step => /*#__PURE__*/React.createElement("div", {
     key: step.n,
     style: {
@@ -3895,14 +3895,14 @@ const SCORECARD = [{
   status: "Strong",
   headline: {
     val: "99.7%",
-    label: "Site near-miss close rate"
+    label: "Site report close rate"
   },
   metrics: [{
     val: "108",
     label: "Self-raised reports"
   }, {
-    val: "+200%",
-    label: "Reporting uplift"
+    val: "33%",
+    label: "Of site reports"
   }],
   note: "Self-initiated near-miss culture; all 8 QEC bays verified to source."
 }, {
@@ -3912,7 +3912,7 @@ const SCORECARD = [{
   status: "Strong",
   headline: {
     val: "96%",
-    label: "Sustained FPY (Wk26)"
+    label: "FPY in Wk26"
   },
   metrics: [{
     val: "40%",
@@ -3921,7 +3921,7 @@ const SCORECARD = [{
     val: "4",
     label: "Open actions"
   }],
-  note: "FPY programme low 50s→100%; Stage-6 faults down 18.5%."
+  note: "Mean FPY 68.8% to 82.4%, peak 100%; Stage-6 faults down 18.5%."
 }, {
   id: "C",
   title: "Cost",
