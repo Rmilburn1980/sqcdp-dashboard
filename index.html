@@ -666,7 +666,7 @@ const DEFAULTS = {
     }, {
       label: "Defect Reduction",
       val: "40%",
-      sub: "Per vehicle, 12 months",
+      sub: "Per vehicle, 12 months. My own figure, not verified",
       color: "#10B981"
     }, {
       label: "Faults Fixed S6→S8",
@@ -764,48 +764,43 @@ const DEFAULTS = {
       sub: "vs £12,000 target",
       color: "#10B981"
     }, {
-      label: "YTD Spend",
+      label: "Spend, Oct 24 to Mar 25",
       val: "£60,244",
-      sub: "vs £73,200 budget",
+      sub: "vs £73,200 budget (Line 240)",
       color: "#F59E0B"
     }, {
       label: "Under Budget",
       val: "17.7%",
-      sub: "£13,956 YTD saving",
+      sub: "£12,956 under budget over 6 months",
       color: "#10B981"
     }, {
-      label: "DIP of Scrap",
-      val: "10.7%",
-      sub: "Smallest cat — Mar",
+      label: "Months under budget",
+      val: "5 of 6",
+      sub: "Nov 24 to Mar 25, after Oct over by £6,967",
       color: "#10B981"
-    }, {
-      label: "Top 5 DIP",
-      val: "£788",
-      sub: "91.4% of Mar total",
-      color: "#F59E0B"
     }],
     scrap: [{
-      mo: "Oct 23",
+      mo: "Oct 24",
       target: 13200,
       actual: 20167
     }, {
-      mo: "Nov 23",
+      mo: "Nov 24",
       target: 12600,
       actual: 11038
     }, {
-      mo: "Dec 23",
+      mo: "Dec 24",
       target: 10200,
       actual: 5524
     }, {
-      mo: "Jan 24",
+      mo: "Jan 25",
       target: 12600,
       actual: 6602
     }, {
-      mo: "Feb 24",
+      mo: "Feb 25",
       target: 12600,
       actual: 11184
     }, {
-      mo: "Mar 24",
+      mo: "Mar 25",
       target: 12000,
       actual: 5729
     }],
@@ -822,7 +817,7 @@ const DEFAULTS = {
       name: "Other",
       value: 745
     }],
-    narrative: "From over budget in October (£20,167 vs £13,200) to £13,956 under budget YTD by March. Driven by structured root-cause analysis, DIP tracking and supplier engagement. 17.7% saving against budget across the period."
+    narrative: "From over budget in October (£20,167 vs £13,200) to £12,956 under budget over the six months October 2024 to March 2025, with five consecutive months under target. This is total scrap on Line 240, from my scrap cost performance document, and I have not checked it against finance records. The March category breakdown totals £8,028 but the monthly table shows £5,729 for March, and that gap is not resolved."
   },
   D: {
     stats: [{
@@ -892,23 +887,23 @@ const DEFAULTS = {
       color: "#E8A838"
     }, {
       label: "3x3 Start",
-      val: "79%",
-      sub: "Avg across 3 roles",
+      val: "70%",
+      sub: "Critical SOPs with 3+ trained, Sep 2025",
       color: "#F59E0B"
     }, {
-      label: "3x3 Result",
-      val: "100%",
-      sub: "All 3 roles in 5 months",
+      label: "3x3 Latest",
+      val: "98.8%",
+      sub: "85 of 86; Bays 5 to 8: 36 of 36",
       color: "#10B981"
     }, {
-      label: "Critical SOP Cover",
+      label: "3+ Trained, Dec 2025",
       val: "97.7%",
-      sub: "86 critical processes",
+      sub: "84 of 86 critical SOPs",
       color: "#E8A838"
     }, {
       label: "Cross-Functionality",
-      val: "44.2%",
-      sub: "115/260 — 2+ trained ops",
+      val: "44.6%",
+      sub: "116/260 critical processes, 3+ trained",
       color: "#10B981"
     }, {
       label: "Processes Mapped",
@@ -945,7 +940,7 @@ const DEFAULTS = {
       before: 33,
       after: 86
     }],
-    narrative: "Skills matrix built on own initiative — from 36% to 86.6% across 260 processes over two years. 3x3 matrix reached 100% in 5 months. Critical SOP coverage: 97.7% across 86 defined critical processes. Used for job rotation design, training investment and absence cover planning."
+    narrative: "Skills matrix built on own initiative — from 36% to 86.6% across 260 processes over two years. 3x3 cross-training: 85 of 86 critical-to-quality SOPs have three or more trained operators (98.8%), up from 70% in September 2025, and all 36 in Bays 5 to 8. Used for job rotation design, training investment and absence cover planning."
   }
 };
 
@@ -1220,7 +1215,7 @@ const FIELD_MAPS = {
   C: {
     scrap: {
       label: "Scrap vs Target",
-      example: "mo,target,actual\nOct 23,13200,20167",
+      example: "mo,target,actual\nOct 24,13200,20167",
       headers: [{
         key: "mo",
         aliases: ["month", "mon", "date", "period"]
@@ -2045,18 +2040,18 @@ const OVERVIEW_STATS = [{
   color: "#E8A838"
 }, {
   label: "3x3 Programme",
-  val: "79%→100%",
-  sub: "3 roles in 5 months",
+  val: "70%→98.8%",
+  sub: "Critical SOPs with 3+ trained",
   color: "#E8A838"
 }, {
   label: "Scrap Under Budget",
   val: "17.7%",
-  sub: "YTD Oct 23 – Mar 24",
+  sub: "Line 240 scrap, Oct 24 to Mar 25",
   color: "#F59E0B"
 }, {
   label: "Defect Reduction",
   val: "40%",
-  sub: "Per vehicle, 12 months",
+  sub: "Per vehicle, 12 months. My own figure, not verified",
   color: "#2E75B6"
 }, {
   label: "Top Reporter",
@@ -2065,8 +2060,8 @@ const OVERVIEW_STATS = [{
   color: "#10B981"
 }, {
   label: "Cross-Functionality",
-  val: "44.2%",
-  sub: "115/260 — 2+ trained operators",
+  val: "44.6%",
+  sub: "116/260 critical processes, 3+ trained",
   color: "#E8A838"
 }];
 function OverviewTab({
@@ -3926,11 +3921,11 @@ const SCORECARD = [{
   status: "On Track",
   headline: {
     val: "17.7%",
-    label: "Under budget YTD"
+    label: "Scrap under budget, Oct 24 to Mar 25"
   },
   metrics: [{
-    val: "£13,956",
-    label: "YTD saving"
+    val: "£12,956",
+    label: "Saving over 6 months"
   }, {
     val: "£5,729",
     label: "Mar actual"
@@ -3963,11 +3958,11 @@ const SCORECARD = [{
     label: "Skills matrix"
   },
   metrics: [{
-    val: "100%",
-    label: "3x3 in 5 months"
+    val: "98.8%",
+    label: "Critical SOPs, 3+ trained"
   }, {
-    val: "97.7%",
-    label: "Critical SOP cover"
+    val: "36 of 36",
+    label: "Bays 5 to 8"
   }],
   note: "260 processes mapped; built on own initiative over 2 years."
 }];
