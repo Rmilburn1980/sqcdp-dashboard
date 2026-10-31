@@ -649,14 +649,14 @@ const DEFAULTS = {
       sub: "Sep 24 to Mar 25 average, then Jul 25",
       color: "#10B981"
     }, {
-      label: "Wk16–26 Snapshot",
-      val: "84%→96%",
-      sub: "12-week tracked window",
+      label: "Stage 8 FPY, Wk16–26 (2026)",
+      val: "82%",
+      sub: "Average, Wk16 to 26 (11 weeks, range 53% to 100%)",
       color: "#2E75B6"
     }, {
       label: "Peak FPY",
       val: "100%",
-      sub: "Week 18",
+      sub: "Weeks 17 and 20",
       color: "#10B981"
     }, {
       label: "Wk26 FPY",
@@ -684,34 +684,31 @@ const DEFAULTS = {
       fpy: 84
     }, {
       wk: "Wk17",
-      fpy: null
-    }, {
-      wk: "Wk18",
       fpy: 100
     }, {
-      wk: "Wk19a",
+      wk: "Wk18",
       fpy: 53
     }, {
-      wk: "Wk19b",
+      wk: "Wk19",
       fpy: 53
     }, {
       wk: "Wk20",
-      fpy: 85
+      fpy: 100
     }, {
       wk: "Wk21",
-      fpy: 80
+      fpy: 85
     }, {
       wk: "Wk22",
-      fpy: 83
+      fpy: 80
     }, {
       wk: "Wk23",
-      fpy: 86
+      fpy: 83
     }, {
       wk: "Wk24",
       fpy: 86
     }, {
       wk: "Wk25",
-      fpy: null
+      fpy: 86
     }, {
       wk: "Wk26",
       fpy: 96
@@ -753,7 +750,7 @@ const DEFAULTS = {
       issue: "Rail sealing / training deficit",
       status: "Open"
     }],
-    narrative: "Two FPY sources. The Caravan Combined Performance Tracker (line level, A vans out of PDI as a share of vans out, daily records to 15 July 2025) gives an average of 58% from September 2024 to March 2025 and 92% in July 2025, with two weeks at 100%. The tracked Wk16 to Wk26 window below shows 84% rising to 96%, with a peak of 100% in week 18; the two sources have not been reconciled, and weekly tracking before week 16 was not formally recorded. Wk19's apparent dip to 53% was caused by pilot builds being included in that week's data pool; pilot builds were formally excluded from Wk21 (10 pilots) and Wk22 (2 pilots) onward — documented, not reflective of standard production. Stage 6 avg faults per van fell from 54 (Wk16) to 44 (Wk26) — an 18.5% reduction — driven by the morning meeting process, operative accountability and DCR escalation. Stage 6 total: 908 faults YTD, 94% from production; Furniture = 40% of faults."
+    narrative: "Two FPY sources. The Caravan Combined Performance Tracker (line level, A vans out of PDI as a share of vans out, daily records to 15 July 2025) gives an average of 58% from September 2024 to March 2025 and 92% in July 2025, with two weeks at 100%. The Stage 8 end-of-line FPY for weeks 16 to 26 of 2026 (a different measure, from the weekly Stage 8 slide) ranged from 53% to 100% and averaged about 82%, with weeks 18 and 19 at 53% and the 95% target met in 3 of 11 weeks; it is not comparable with the tracker and the two have not been reconciled. Pilot builds were excluded from the data in Wk21 (10 pilots) and Wk22 (2 pilots). Stage 6 avg faults per van fell from 54 (Wk16) to 44 (Wk26) — an 18.5% reduction — driven by the morning meeting process, operative accountability and DCR escalation. Stage 6 total: 908 faults YTD, 94% from production; Furniture = 40% of faults."
   },
   C: {
     stats: [{
@@ -2415,11 +2412,11 @@ function QualityTab({
       suffix: "%"
     })
   }), /*#__PURE__*/React.createElement(ReferenceLine, {
-    y: 90,
+    y: 95,
     stroke: C.green,
     strokeDasharray: "4 4",
     label: {
-      value: "90%",
+      value: "95%",
       fill: C.green,
       fontSize: 9,
       position: "right"
@@ -2455,7 +2452,7 @@ function QualityTab({
       color: C.dim,
       lineHeight: 1.5
     }
-  }, "Wk19 dip: pilot builds included in data pool. Wk21 (10 pilots) & Wk22 (2 pilots) formally excluded — documented, not a production regression.")), /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement("div", {
+  }, "Weeks 18 and 19 were 53%. Pilot builds were excluded from the data in Wk21 (10 pilots) and Wk22 (2 pilots). The 95% target was met in 3 of the 11 weeks (Wk17, Wk20, Wk26). Read from the weekly Stage 8 slide.")), /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "monospace",
       fontSize: 10,
@@ -2655,7 +2652,7 @@ function QualityTab({
   }, {
     n: "06",
     t: "Result",
-    d: "FPY peaked at 100% in week 18 and was 96% in week 26. 98.8% of Stage 6 faults resolved before EOL."
+    d: "Stage 8 FPY reached 100% in weeks 17 and 20 and was 96% in week 26, with 53% in weeks 18 and 19. 98.8% of Stage 6 faults resolved before EOL."
   }].map(step => /*#__PURE__*/React.createElement("div", {
     key: step.n,
     style: {
