@@ -1,5 +1,9 @@
 # SQCDP Interview Evidence Dashboard
 
+[![SQCDP dashboard scorecard and pillar balance radar](docs/screenshot.png)](https://rmilburn1980.github.io/sqcdp-dashboard/)
+
+[Try it live](https://rmilburn1980.github.io/sqcdp-dashboard/) · [Portfolio hub](https://rmilburn1980.github.io/)
+
 Live: https://rmilburn1980.github.io/sqcdp-dashboard/
 
 Interview evidence organised on the SQCDP framework: Safety, Quality, Cost, Delivery and People. Each pillar has headline figures, a short narrative of what I did, and the actions still open. A scorecard radar compares the pillars.
