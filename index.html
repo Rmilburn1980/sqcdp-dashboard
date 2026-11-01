@@ -3880,7 +3880,7 @@ const STATUS_COLORS = {
 };
 const SCORE_COLOR = TABS.find(t => t.id === "SCORE").color;
 
-// Curated headline read for each SQCDP pillar. Scores (0–100) are a defensible
+// Curated headline read for each SQCDP pillar. Scores (0–100) are my own judgement, not measured, and are shown as such
 // roll-up of each pillar's evidence, used only for the comparison radar.
 const SCORECARD = [{
   id: "S",
@@ -4003,7 +4003,7 @@ function ScorecardTab({
       textTransform: "uppercase",
       marginBottom: 8
     }
-  }, "Overall Health"), /*#__PURE__*/React.createElement("div", {
+  }, "My own rating, not a measured figure"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       alignItems: "baseline",
@@ -4059,7 +4059,7 @@ function ScorecardTab({
       color: C.muted,
       lineHeight: 1.6
     }
-  }, "Five pillars, two years of evidence. Three rated Strong, two On Track — no pillar at risk.")), /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement("div", {
+  }, "A roll-up of my own judgement of each pillar's evidence, 0 to 100. The measured figures are on each pillar card and its tab.")), /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Special Gothic',system-ui,-apple-system,sans-serif",
       fontSize: 10,
@@ -4067,7 +4067,7 @@ function ScorecardTab({
       marginBottom: 6,
       letterSpacing: "0.1em"
     }
-  }, "Pillar Balance (0–100)"), /*#__PURE__*/React.createElement(ResponsiveContainer, {
+  }, "Pillar balance (my own rating, 0 to 100)"), /*#__PURE__*/React.createElement(ResponsiveContainer, {
     width: "100%",
     height: 230
   }, /*#__PURE__*/React.createElement(RadarChart, {
