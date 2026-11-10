@@ -2,7 +2,7 @@
 <html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Richard Milburn — SQCDP Interview Evidence Portfolio</title>
+<title>Richard Milburn, SQCDP Interview Evidence Portfolio</title>
 <link rel="icon" type="image/svg+xml" href="https://rmilburn1980.github.io/rm-monogram.svg">
 <link rel="apple-touch-icon" href="https://rmilburn1980.github.io/rm-monogram-512.png">
 
@@ -45,7 +45,7 @@
 
 <div id="error-overlay">
   <h2>⚠ Dashboard failed to load</h2>
-  <p>Something went wrong while loading or running the dashboard. Details below — this usually means a script failed to load (check your internet connection) or there's a code error.</p>
+  <p>Something went wrong while loading or running the dashboard. Details below, this usually means a script failed to load (check your internet connection) or there's a code error.</p>
   <pre id="error-message"></pre>
   <p>Try: refreshing the page, checking your internet connection, or opening this file in a different browser (Chrome or Firefox recommended).</p>
 </div>
@@ -53,7 +53,7 @@
 <div id="root"></div>
 
 <script>
-  // Global error catcher — shows a visible message instead of a silent blank page.
+  // Global error catcher, shows a visible message instead of a silent blank page.
   window.addEventListener('error', function (e) {
     showError(e.message + '\n\n' + (e.filename ? 'File: ' + e.filename + ':' + e.lineno : ''));
   });
@@ -457,7 +457,7 @@ const {
   Pie,
   Legend
 } = Recharts;
-// ── PALETTE — Bold livery ─────────────────────────────────────────────────────
+// ── PALETTE, Bold livery ─────────────────────────────────────────────────────
 const C = {
   navy: "#070a1a",
   ink: "#090b24",
@@ -475,7 +475,7 @@ const C = {
   dim: "#a3a2c8"
 };
 
-// ── SQCDP TABS — Bold livery ──────────────────────────────────────────────────
+// ── SQCDP TABS, Bold livery ──────────────────────────────────────────────────
 const TABS = [{
   id: "O",
   label: "Overview",
@@ -486,23 +486,23 @@ const TABS = [{
   color: "#5EE6C5"
 }, {
   id: "S",
-  label: "S — Safety",
+  label: "S, Safety",
   color: "#00E68A"
 }, {
   id: "Q",
-  label: "Q — Quality",
+  label: "Q, Quality",
   color: "#00D9C0"
 }, {
   id: "C",
-  label: "C — Cost",
+  label: "C, Cost",
   color: "#FFB800"
 }, {
   id: "D",
-  label: "D — Delivery",
+  label: "D, Delivery",
   color: "#A855F7"
 }, {
   id: "P",
-  label: "P — People",
+  label: "P, People",
   color: "#FF3D9A"
 }, {
   id: "TRENDS",
@@ -522,9 +522,9 @@ const TABS = [{
 const DEFAULTS = {
   S: {
     stats: [{
-      label: "Near-Miss Reports",
+      label: "Reports Raised",
       val: "108",
-      sub: "Self-raised",
+      sub: "102 near misses and hazards, 6 accidents",
       color: "#10B981"
     }, {
       label: "Site Share",
@@ -552,34 +552,10 @@ const DEFAULTS = {
       sub: "All bays verified against source QEC forms",
       color: "#64748B"
     }],
-    trend: [{
-      mo: "Aug 24",
-      reports: 12
-    }, {
-      mo: "Sep 24",
-      reports: 18
-    }, {
-      mo: "Oct 24",
-      reports: 24
-    }, {
-      mo: "Nov 24",
-      reports: 31
-    }, {
-      mo: "Dec 24",
-      reports: 28
-    }, {
-      mo: "Jan 25",
-      reports: 38
-    }, {
-      mo: "Feb 25",
-      reports: 42
-    }, {
-      mo: "Mar 25",
-      reports: 48
-    }],
+    trend: [{ mo: "Apr 25", reports: 23 }, { mo: "May 25", reports: 17 }, { mo: "Jun 25", reports: 28 }, { mo: "Jul 25", reports: 37 }, { mo: "Aug 25", reports: 14 }, { mo: "Sep 25", reports: 40 }, { mo: "Oct 25", reports: 16 }, { mo: "Nov 25", reports: 48 }, { mo: "Dec 25", reports: 26 }, { mo: "Jan 26", reports: 22 }, { mo: "Feb 26", reports: 15 }],
     qec: [{
       name: "Bay 2 Operative (N/S furniture assembly, bottom section)",
-      bay: "Bay 2 – Stn A",
+      bay: "Bay 2, Stn A",
       back: 14,
       shoulder: 14,
       wrist: 22,
@@ -587,7 +563,7 @@ const DEFAULTS = {
       priority: "No"
     }, {
       name: "Bay 2 Operative (N/S furniture assembly, top section)",
-      bay: "Bay 2 – Stn B",
+      bay: "Bay 2, Stn B",
       back: 32,
       shoulder: 32,
       wrist: 28,
@@ -642,7 +618,7 @@ const DEFAULTS = {
       neck: 6,
       priority: "Yes"
     }],
-    narrative: "Self-initiated programme. I raised 108 reports, 33% of the 324 site reports logged from April 2025 to March 2026 (102 near misses and hazards, 6 accident reports). All 108 show as closed in the export, 21 of them in one batch on 8 January 2026, so a closed status does not show the risk was removed. One needed investment that was not going to happen because production was transferring from the site, so the risk was left unresolved. The site rate was 99.7% (323 of 324 closed); the one open record is an accident report raised by someone else, still under investigation. SafetyCube, an EHS management system, logged reports from April 2025, and my own reports rose from 19 in April to June 2025 to 45 in October to December 2025. All 8 QEC assessments across Bays 2, 3, 5, 6, 7 and 8 are now verified directly against source forms. Bay 6 (electrical fitting) assessed 9 Mar 2026: all four exposure regions scored in the Low band (back 18, shoulder 10, wrist 10, neck 4). QEC peak score across all assessed workers remains 36 (shoulder), shared by both Bay 8 tasks — gas installation and front/back panel fitting."
+    narrative: "Self-initiated programme. I raised 108 reports, 33% of the 324 site reports logged from April 2025 to March 2026 (102 near misses and hazards, 6 accident reports). All 108 show as closed in the export, 21 of them in one batch on 8 January 2026, so a closed status does not show the risk was removed. One needed investment that was not going to happen because production was transferring from the site, so the risk was left unresolved. The site rate was 99.7% (323 of 324 closed); the one open record is an accident report raised by someone else, still under investigation. SafetyQube, an EHS management system, logged reports from April 2025, and my own reports rose from 19 in April to June 2025 to 45 in October to December 2025. All 8 QEC assessments across Bays 2, 3, 5, 6, 7 and 8 are now verified directly against source forms. Bay 6 (electrical fitting) assessed 9 Mar 2026: all four exposure regions scored in the Low band (back 18, shoulder 10, wrist 10, neck 4). QEC peak score across all assessed workers remains 36 (shoulder), shared by both Bay 8 tasks, gas installation and front/back panel fitting."
   },
   Q: {
     stats: [{
@@ -651,7 +627,7 @@ const DEFAULTS = {
       sub: "Sep 24 to Mar 25 average, then Jul 25",
       color: "#10B981"
     }, {
-      label: "Stage 8 FPY, Wk16–26 (2026)",
+      label: "Stage 8 FPY, Wk16 to 26 (2026)",
       val: "82%",
       sub: "Average, Wk16 to 26 (11 weeks, range 53% to 100%)",
       color: "#2E75B6"
@@ -752,7 +728,7 @@ const DEFAULTS = {
       issue: "Rail sealing / training deficit",
       status: "Open"
     }],
-    narrative: "Two FPY sources. The Caravan Combined Performance Tracker (line level, A vans out of PDI as a share of vans out, daily records to 15 July 2025) gives an average of 58% from September 2024 to March 2025 and 92% in July 2025, with two weeks at 100%. The Stage 8 end-of-line FPY for weeks 16 to 26 of 2026 (a different measure, from the weekly Stage 8 slide) ranged from 53% to 100% and averaged about 82%, with weeks 18 and 19 at 53% and the 95% target met in 3 of 11 weeks; it is not comparable with the tracker and the two have not been reconciled. Pilot builds were excluded from the data in Wk21 (10 pilots) and Wk22 (2 pilots). Stage 6 avg faults per van fell from 54 (Wk16) to 44 (Wk26) — an 18.5% reduction — driven by the morning meeting process, operative accountability and DCR escalation. Caravan Stage 6 to week 2 of 2025 (from the week 2 end of line review): 908 faults YTD, 94% from production; Furniture = 40% of faults."
+    narrative: "Two FPY sources. The Caravan Combined Performance Tracker (line level, A vans out of PDI as a share of vans out, daily records to 15 July 2025) gives an average of 58% from September 2024 to March 2025 and 92% in July 2025, with two weeks at 100%. The Stage 8 end-of-line FPY for weeks 16 to 26 of 2026 (a different measure, from the weekly Stage 8 slide) ranged from 53% to 100% and averaged about 82%, with weeks 18 and 19 at 53% and the 95% target met in 3 of 11 weeks; it is not comparable with the tracker and the two have not been reconciled. Pilot builds were excluded from the data in Wk21 (10 pilots) and Wk22 (2 pilots). Stage 6 avg faults per van fell from 54 (Wk16) to 44 (Wk26), an 18.5% reduction, driven by the morning meeting process, operative accountability and DCR escalation. Caravan Stage 6 to week 2 of 2025 (from the week 2 end of line review): 908 faults YTD, 94% from production; Furniture = 40% of faults."
   },
   C: {
     stats: [{
@@ -825,12 +801,12 @@ const DEFAULTS = {
     stats: [{
       label: "Flow Efficiency",
       val: "97.5%",
-      sub: "Aug–Nov 24 pre-closure",
+      sub: "Aug to Nov 24 pre-closure",
       color: "#8B5CF6"
     }, {
       label: "Best Month",
-      val: "102.2%",
-      sub: "Sep 24 — exceeded in",
+      val: "102.3%",
+      sub: "Sep 24, more vans out than in",
       color: "#10B981"
     }, {
       label: "Total Vans Out",
@@ -874,7 +850,7 @@ const DEFAULTS = {
       out: 165,
       eff: 87.8
     }],
-    narrative: "97.5% flow efficiency across the pre-closure period, with two months delivering more vans out than in. Downtime: 2.9 hours across four months. November decline reflects planned site wind-down — not an operational failure."
+    narrative: "97.5% flow efficiency across the pre-closure period, with two months delivering more vans out than in. Downtime: 2.9 hours across four months. November decline reflects planned site wind-down, not an operational failure."
   },
   P: {
     stats: [{
@@ -885,7 +861,7 @@ const DEFAULTS = {
     }, {
       label: "Matrix End",
       val: "86.6%",
-      sub: "260 processes — 2 years",
+      sub: "260 processes, 2 years",
       color: "#E8A838"
     }, {
       label: "3x3 Start",
@@ -905,7 +881,7 @@ const DEFAULTS = {
     }, {
       label: "Cross-Functionality",
       val: "44.6%",
-      sub: "116/260 critical processes, 3+ trained",
+      sub: "116 of all 260 processes, 3+ trained",
       color: "#10B981"
     }, {
       label: "Processes Mapped",
@@ -942,7 +918,7 @@ const DEFAULTS = {
       before: 33,
       after: 86
     }],
-    narrative: "Skills matrix built on own initiative — from 36% to 86.6% across 260 processes over two years. 3x3 cross-training: 85 of 86 critical-to-quality SOPs have three or more trained operators (98.8%), up from 70% in September 2025, and all 36 in Bays 5 to 8. Used for job rotation design, training investment and absence cover planning."
+    narrative: "Skills matrix built on own initiative, from 36% to 86.6% across 260 processes over two years. 3x3 cross-training: 85 of 86 critical-to-quality SOPs have three or more trained operators (98.8%), up from 70% in September 2025, and all 36 in Bays 5 to 8. Used for job rotation design, training investment and absence cover planning."
   }
 };
 
@@ -1072,7 +1048,7 @@ const Tip = ({
     style: {
       color: p.color || C.text
     }
-  }, p.name, ": ", prefix, p.value != null ? Number(p.value).toLocaleString() : "—", suffix)));
+  }, p.name, ": ", prefix, p.value != null ? Number(p.value).toLocaleString() : ", ", suffix)));
 };
 
 // ── STORAGE HELPERS ───────────────────────────────────────────────────────────
@@ -1130,7 +1106,7 @@ function storagePush(tabId, dataset, rows) {
 }
 
 // ── UPLOAD PANEL ──────────────────────────────────────────────────────────────
-// Each header can list common real-world spelling variants under `aliases` —
+// Each header can list common real-world spelling variants under `aliases` , 
 // matching is case-insensitive and ignores spaces/punctuation, so an Excel
 // column called "Week" or "WK #" still matches the canonical "wk" field.
 const FIELD_MAPS = {
@@ -1287,7 +1263,7 @@ function normalizeKey(s) {
 // Given the parsed rows (array of objects with whatever column names the
 // source file used) and a field-map spec (array of {key, aliases}), returns
 // either { ok:true, rows: <remapped rows using canonical keys> } or
-// { ok:false, missing: [canonical keys not found] } — never throws.
+// { ok:false, missing: [canonical keys not found] } ,  never throws.
 function remapColumns(parsedRows, headerSpecs) {
   if (!parsedRows || parsedRows.length === 0) return {
     ok: false,
@@ -1331,7 +1307,7 @@ function remapColumns(parsedRows, headerSpecs) {
 // Detects whether a workbook is a single-worker QEC ergonomic assessment form
 // (the "QEC - Observation" / "QEC - Scoring" / "QEC - Final Exposure Scoring"
 // three-sheet layout) rather than a flat table. This form has no header-row +
-// data-rows shape — fields are scattered across labeled cells — so it can't go
+// data-rows shape, fields are scattered across labeled cells, so it can't go
 // through the generic CSV/JSON path at all and needs its own reader.
 function isQecFormWorkbook(workbook) {
   const names = workbook.SheetNames || [];
@@ -1346,9 +1322,9 @@ function isQecFormWorkbook(workbook) {
 function anonymizeWorkerLabel(raw) {
   const w = String(raw || "").trim();
   if (!w) return "Operative";
-  if (/\bbay\s*\d+/i.test(w)) return w; // already anonymous — just a bay number
+  if (/\bbay\s*\d+/i.test(w)) return w; // already anonymous, just a bay number
   if (/operative|fitter|technician|assembler|inspector|engineer/i.test(w)) return w; // role, not a name
-  return "Operative"; // looks like a personal name — anonymize
+  return "Operative"; // looks like a personal name, anonymize
 }
 
 // Reads exactly one QEC form workbook (as produced by this organization's
@@ -1369,7 +1345,7 @@ function parseQecFormWorkbook(workbook) {
   const worker = anonymizeWorkerLabel(cell(obs, "G3"));
   const areaTask = String(cell(obs, "G4") ?? "").trim();
 
-  // Back has two totals (Static / Moving) in this template — take the higher
+  // Back has two totals (Static / Moving) in this template, take the higher
   // (more conservative) of the two as the single "back" exposure figure,
   // since either posture occurring at a high level represents real risk.
   const backStatic = Number(cell(final, "E8"));
@@ -1385,7 +1361,7 @@ function parseQecFormWorkbook(workbook) {
   const priority = [back, shoulder, wrist, neck].some(s => s >= 23) ? "Yes" : "No";
   return {
     name: areaTask ? `${worker} (${areaTask})` : worker || "Unnamed worker",
-    bay: worker || "—",
+    bay: worker || ", ",
     back,
     shoulder,
     wrist,
@@ -1460,13 +1436,13 @@ function UploadPanel({
           if (dataset === "qec" && isQecFormWorkbook(wb)) {
             const row = parseQecFormWorkbook(wb);
             if (!row) {
-              setError(`Recognized "${file.name}" as a QEC assessment form, but couldn't read the expected score cells. The form layout may have changed — try exporting the Final Exposure Scoring sheet as CSV instead.`);
+              setError(`Recognized "${file.name}" as a QEC assessment form, but couldn't read the expected score cells. The form layout may have changed, try exporting the Final Exposure Scoring sheet as CSV instead.`);
               setSuccess("");
               return;
             }
             setRaw(JSON.stringify([row], null, 2));
             setError("");
-            setSuccess(`✓ Read QEC assessment for "${row.name}" directly from the form — back ${row.back}, shoulder ${row.shoulder}, wrist ${row.wrist}, neck ${row.neck}. Click Preview below to confirm, then Push to add this worker to the table.`);
+            setSuccess(`✓ Read QEC assessment for "${row.name}" directly from the form, back ${row.back}, shoulder ${row.shoulder}, wrist ${row.wrist}, neck ${row.neck}. Click Preview below to confirm, then Push to add this worker to the table.`);
             return;
           }
           const sheetName = wb.SheetNames[0];
@@ -1479,7 +1455,7 @@ function UploadPanel({
           }
           setRaw(csv);
           setError("");
-          setSuccess(`✓ Loaded "${file.name}" — sheet "${sheetName}", ${csv.trim().split("\n").length} row(s) found. Click Preview below to continue.`);
+          setSuccess(`✓ Loaded "${file.name}" ,  sheet "${sheetName}", ${csv.trim().split("\n").length} row(s) found. Click Preview below to continue.`);
         } catch (err) {
           setError("Could not read this Excel file: " + err.message);
           setSuccess("");
@@ -1501,7 +1477,7 @@ function UploadPanel({
         }
         setRaw(text);
         setError("");
-        setSuccess(`✓ Loaded "${file.name}" — ${text.trim().split("\n").length} line(s) found. Click Preview below to continue.`);
+        setSuccess(`✓ Loaded "${file.name}" ,  ${text.trim().split("\n").length} line(s) found. Click Preview below to continue.`);
       };
       reader.onerror = () => {
         setError("Failed to read the file from disk.");
@@ -1520,7 +1496,7 @@ function UploadPanel({
       return;
     }
     if (!raw.trim()) {
-      setError("Nothing to preview — paste data or upload a file first.");
+      setError("Nothing to preview, paste data or upload a file first.");
       return;
     }
     let parsed;
@@ -1562,7 +1538,7 @@ function UploadPanel({
     const updatedHistory = storagePush(tabId, dataset, preview);
     setHistory(storageLoad());
     onUpdate(tabId, dataset, preview);
-    const mergeNote = dataset === "qec" && preview.length === 1 ? " Merged into the existing QEC table by worker & task — other rows kept." : "";
+    const mergeNote = dataset === "qec" && preview.length === 1 ? " Merged into the existing QEC table by worker & task, other rows kept." : "";
     setSuccess(`✓ Saved as snapshot ${updatedHistory.length}. All ${updatedHistory.length} upload(s) retained.${mergeNote}`);
     setPreview(null);
     setRaw("");
@@ -1646,7 +1622,7 @@ function UploadPanel({
       fontWeight: 700,
       letterSpacing: "0.1em"
     }
-  }, "⬆ PUSH DATA — ", TABS.find(t => t.id === tabId)?.label.toUpperCase()), /*#__PURE__*/React.createElement("div", {
+  }, "⬆ PUSH DATA, ", TABS.find(t => t.id === tabId)?.label.toUpperCase()), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       gap: 8,
@@ -1696,7 +1672,7 @@ function UploadPanel({
       marginBottom: 10,
       letterSpacing: "0.1em"
     }
-  }, "UPLOAD HISTORY — ", current.label, " · No data has been deleted"), /*#__PURE__*/React.createElement("div", {
+  }, "UPLOAD HISTORY, ", current.label, " · No data has been deleted"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       flexDirection: "column",
@@ -1725,7 +1701,7 @@ function UploadPanel({
       fontSize: 10,
       color: C.muted
     }
-  }, DEFAULTS[tabId][dataset]?.length ?? "—", " rows · Original portfolio data")), /*#__PURE__*/React.createElement("button", {
+  }, DEFAULTS[tabId][dataset]?.length ?? ", ", " rows · Original portfolio data")), /*#__PURE__*/React.createElement("button", {
     onClick: handleRevertToDefault,
     style: {
       padding: "4px 12px",
@@ -1828,7 +1804,7 @@ function UploadPanel({
     style: {
       color: color
     }
-  }, "✓ QEC assessment form (.xlsx) accepted directly"), " — upload the original 3-sheet workbook for one worker and the back/shoulder/wrist/neck scores will be read automatically.", /*#__PURE__*/React.createElement("br", null)), /*#__PURE__*/React.createElement("span", {
+  }, "✓ QEC assessment form (.xlsx) accepted directly"), " ,  upload the original 3-sheet workbook for one worker and the back/shoulder/wrist/neck scores will be read automatically.", /*#__PURE__*/React.createElement("br", null)), /*#__PURE__*/React.createElement("span", {
     style: {
       color: C.dim
     }
@@ -1840,7 +1816,7 @@ function UploadPanel({
     style: {
       color: C.dim
     }
-  }, "Column names are flexible"), " — e.g. for \"", current.headers[0].key, "\" we also accept: ", current.headers[0].aliases?.slice(0, 3).join(", ") || "—", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
+  }, "Column names are flexible"), " ,  e.g. for \"", current.headers[0].key, "\" we also accept: ", current.headers[0].aliases?.slice(0, 3).join(", ") || ", ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
     style: {
       color: C.dim
     }
@@ -1861,7 +1837,7 @@ function UploadPanel({
       fontSize: 11,
       color: C.green
     }
-  }, "🔒 Every push is saved as a new snapshot. Your existing data is never overwritten — you can restore any previous upload at any time."), /*#__PURE__*/React.createElement("div", {
+  }, "🔒 Every push is saved as a new snapshot. Your existing data is never overwritten, you can restore any previous upload at any time."), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       gap: 10,
@@ -1974,7 +1950,7 @@ function UploadPanel({
       color: C.muted,
       marginBottom: 6
     }
-  }, "Preview — ", preview.length, " rows (will be saved as new snapshot)"), /*#__PURE__*/React.createElement("table", {
+  }, "Preview, ", preview.length, " rows (will be saved as new snapshot)"), /*#__PURE__*/React.createElement("table", {
     style: {
       borderCollapse: "collapse",
       fontSize: 11,
@@ -2019,7 +1995,7 @@ function UploadPanel({
 // ── TAB CONTENT COMPONENTS ────────────────────────────────────────────────────
 const pieColors = [C.accent, C.accentL, C.green, C.dim];
 
-// "Evidence at a Glance" headline stats — drawn from the master portfolio summary.
+// "Evidence at a Glance" headline stats, drawn from the master portfolio summary.
 const OVERVIEW_STATS = [{
   label: "First Pass Yield",
   val: "58%→92%",
@@ -2028,7 +2004,7 @@ const OVERVIEW_STATS = [{
 }, {
   label: "Reports Logged",
   val: "324",
-  sub: "SafetyCube, Apr 2025 to Mar 2026",
+  sub: "SafetyQube, Apr 2025 to Mar 2026",
   color: "#10B981"
 }, {
   label: "Site Report Close Rate",
@@ -2038,7 +2014,7 @@ const OVERVIEW_STATS = [{
 }, {
   label: "Skills Matrix",
   val: "36%→86.6%",
-  sub: "260 processes — 2 years",
+  sub: "260 processes, 2 years",
   color: "#E8A838"
 }, {
   label: "3x3 Programme",
@@ -2063,7 +2039,7 @@ const OVERVIEW_STATS = [{
 }, {
   label: "Cross-Functionality",
   val: "44.6%",
-  sub: "116/260 critical processes, 3+ trained",
+  sub: "116 of all 260 processes, 3+ trained",
   color: "#E8A838"
 }];
 function OverviewTab({
@@ -2087,7 +2063,7 @@ function OverviewTab({
     style: {
       color: C.text
     }
-  }, "Richard Milburn"), " — Cell Leader · Consett, County Durham · 21 years' service · December 2004 to June 2026. Select a pillar below, or use the tab bar above, to explore the full evidence behind each achievement — charts, data, process narratives and interview context. All figures are drawn from internal site data.")), /*#__PURE__*/React.createElement("div", {
+  }, "Richard Milburn"), " ,  Cell Leader · Consett, County Durham · 21 years' service · December 2004 to June 2026. Select a pillar below, or use the tab bar above, to explore the full evidence behind each achievement, charts, data, process narratives and interview context. All figures are drawn from internal site data.")), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "grid",
       gridTemplateColumns: "repeat(auto-fit,minmax(150px,1fr))",
@@ -2133,7 +2109,7 @@ function OverviewTab({
       color: C.text,
       marginBottom: 4
     }
-  }, t.label.replace(/^.—\s*/, "")), /*#__PURE__*/React.createElement("div", {
+  }, t.label.replace(/^., \s*/, "")), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 10,
       color: C.muted
@@ -2187,7 +2163,7 @@ function SafetyTab({
   color
 }) {
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(SectionLabel, {
-    text: "S · Safety — Near-Miss Culture & Ergonomic Risk",
+    text: "S · Safety, Near-Miss Culture & Ergonomic Risk",
     color: color
   }), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -2212,7 +2188,7 @@ function SafetyTab({
       marginBottom: 12,
       letterSpacing: "0.1em"
     }
-  }, "Near-Miss Reports — Monthly Trend"), /*#__PURE__*/React.createElement(ResponsiveContainer, {
+  }, "Hazard and Near-Miss Reports, Site-Wide by Month"), /*#__PURE__*/React.createElement(ResponsiveContainer, {
     width: "100%",
     height: 190
   }, /*#__PURE__*/React.createElement(LineChart, {
@@ -2322,7 +2298,7 @@ function SafetyTab({
       marginTop: 10,
       flexWrap: "wrap"
     }
-  }, [["Low", "0–14", C.green], ["Moderate", "15–22", C.amber], ["High", "23–29", "#EF4444"], ["Very High", "30+", C.red]].map(([l, r, c]) => /*#__PURE__*/React.createElement("div", {
+  }, [["Low", "0 to 14", C.green], ["Moderate", "15 to 22", C.amber], ["High", "23 to 29", "#EF4444"], ["Very High", "30+", C.red]].map(([l, r, c]) => /*#__PURE__*/React.createElement("div", {
     key: l,
     style: {
       display: "flex",
@@ -2352,7 +2328,7 @@ function QualityTab({
   color
 }) {
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(SectionLabel, {
-    text: "Q · Quality — First-Pass Yield & Fault Reduction",
+    text: "Q · Quality, First-Pass Yield & Fault Reduction",
     color: color
   }), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -2377,7 +2353,7 @@ function QualityTab({
       marginBottom: 12,
       letterSpacing: "0.1em"
     }
-  }, "FPY % — Stage 8 End-of-Line (Wk16–26 Snapshot)"), /*#__PURE__*/React.createElement(ResponsiveContainer, {
+  }, "FPY %, Stage 8 End-of-Line (Wk16 to 26 Snapshot)"), /*#__PURE__*/React.createElement(ResponsiveContainer, {
     width: "100%",
     height: 200
   }, /*#__PURE__*/React.createElement(LineChart, {
@@ -2517,7 +2493,7 @@ function QualityTab({
       color: C.muted,
       letterSpacing: "0.1em"
     }
-  }, "Action Tracker — Caravan Line (Extract)"), /*#__PURE__*/React.createElement("div", {
+  }, "Action Tracker, Caravan Line (Extract)"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       gap: 8
@@ -2608,7 +2584,7 @@ function QualityTab({
       fontSize: 11,
       lineHeight: 1.6
     }
-  }, "Every fault has an owner, a target date and a visible status — nothing discussed and forgotten.")), /*#__PURE__*/React.createElement(Card, {
+  }, "Every fault has an owner, a target date and a visible status, nothing discussed and forgotten.")), /*#__PURE__*/React.createElement(Card, {
     style: {
       marginBottom: 14
     }
@@ -2620,7 +2596,7 @@ function QualityTab({
       marginBottom: 14,
       letterSpacing: "0.1em"
     }
-  }, "How We Did It — Process"), /*#__PURE__*/React.createElement("div", {
+  }, "How We Did It, Process"), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "grid",
       gridTemplateColumns: "repeat(auto-fit,minmax(150px,1fr))",
@@ -2629,11 +2605,11 @@ function QualityTab({
   }, [{
     n: "01",
     t: "Daily Data Feed",
-    d: "Inspectors fed fault data into morning meetings — real-time visibility of what was failing and where."
+    d: "Inspectors fed fault data into morning meetings, real-time visibility of what was failing and where."
   }, {
     n: "02",
     t: "Operative in the Room",
-    d: "The person doing the job was in the meeting too — not blame, understanding."
+    d: "The person doing the job was in the meeting too, not blame, understanding."
   }, {
     n: "03",
     t: "Genuine Conversations",
@@ -2693,7 +2669,7 @@ function CostTab({
   color
 }) {
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(SectionLabel, {
-    text: "C · Cost — Scrap Reduction Oct 2023 – Mar 2024",
+    text: "C · Cost, Scrap Reduction Oct 2024 to Mar 2025",
     color: color
   }), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -2718,7 +2694,7 @@ function CostTab({
       marginBottom: 12,
       letterSpacing: "0.1em"
     }
-  }, "Monthly Scrap — Actual vs Target"), /*#__PURE__*/React.createElement(ResponsiveContainer, {
+  }, "Monthly Scrap, Actual vs Target"), /*#__PURE__*/React.createElement(ResponsiveContainer, {
     width: "100%",
     height: 220
   }, /*#__PURE__*/React.createElement(BarChart, {
@@ -2829,7 +2805,7 @@ function DeliveryTab({
   color
 }) {
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(SectionLabel, {
-    text: "D · Delivery — Production Flow & Throughput",
+    text: "D · Delivery, Production Flow & Throughput",
     color: color
   }), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -2960,7 +2936,7 @@ function PeopleTab({
   color
 }) {
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(SectionLabel, {
-    text: "P · People — Skills Matrix & Competency Development",
+    text: "P · People, Skills Matrix & Competency Development",
     color: color
   }), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -3112,7 +3088,7 @@ function saveInsightsCache(cache) {
   } catch {}
 }
 
-// Optional "bring your own key" support — lets AI Insights work when this file
+// Optional "bring your own key" support, lets AI Insights work when this file
 // is opened standalone (outside Claude.ai), using Anthropic's CORS support for
 // direct browser calls. Stored only in this browser's localStorage; never sent
 // anywhere except directly to api.anthropic.com.
@@ -3131,13 +3107,13 @@ function saveApiKey(key) {
 }
 
 // Builds the prompt sent to Claude for a given pillar, including its current
-// stats, chart data, and narrative — everything needed to ground the summary
+// stats, chart data, and narrative, everything needed to ground the summary
 // in this dashboard's actual numbers rather than generic advice.
 function buildInsightPrompt(pillarId, pillarLabel, data) {
   const trimmed = {
     ...data
   };
-  return `You are a Lean manufacturing analyst briefing a colleague on the "${pillarLabel}" pillar of a manufacturing SQCDP (Safety, Quality, Cost, Delivery, People) performance dashboard for Richard Milburn. Write the way you'd actually talk someone through the numbers before a meeting — not like a report.
+  return `You are a Lean manufacturing analyst briefing a colleague on the "${pillarLabel}" pillar of a manufacturing SQCDP (Safety, Quality, Cost, Delivery, People) performance dashboard for Richard Milburn. Write the way you'd actually talk someone through the numbers before a meeting, not like a report.
 
 Here is the current data for this pillar, as JSON:
 ${JSON.stringify(trimmed, null, 2)}
@@ -3145,21 +3121,21 @@ ${JSON.stringify(trimmed, null, 2)}
 Write a summary with exactly two sections, using these exact headers:
 
 KEY DEVELOPMENTS:
-(2-4 bullet points, each one natural sentence, citing specific numbers from the data above. Write like a person talking through what they're seeing — varied phrasing, contractions are fine, a touch of judgment about whether something is good or bad news. Avoid robotic phrasing like "X increased to Y" for every line; mix it up the way someone would in conversation.)
+(2-4 bullet points, each one natural sentence, citing specific numbers from the data above. Write like a person talking through what they're seeing, varied phrasing, contractions are fine, a touch of judgment about whether something is good or bad news. Avoid robotic phrasing like "X increased to Y" for every line; mix it up the way someone would in conversation.)
 
 SUGGESTED NEXT STEPS:
-(2-3 bullet points, each one natural sentence, proposing specific, actionable next steps grounded in the data. Frame them like suggestions to a colleague, not directives from a system — e.g. "might be worth..." or "worth flagging..." rather than only imperative commands.)
+(2-3 bullet points, each one natural sentence, proposing specific, actionable next steps grounded in the data. Frame them like suggestions to a colleague, not directives from a system, e.g. "might be worth..." or "worth flagging..." rather than only imperative commands.)
 
-Keep the entire response under 150 words. Do not add any other headers, preamble, or sign-off. Use a "- " prefix for each bullet. Avoid corporate jargon and avoid sounding like a template — this should read like one person explaining the data to another.`;
+Keep the entire response under 150 words. Do not add any other headers, preamble, or sign-off. Use a "- " prefix for each bullet. Avoid corporate jargon and avoid sounding like a template, this should read like one person explaining the data to another.`;
 }
 
 // Calls the Claude API with the given prompt and returns the text response.
 // Two paths: (1) running as a Claude.ai artifact, where the platform
-// authenticates and proxies the request automatically — no key needed; or
+// authenticates and proxies the request automatically, no key needed; or
 // (2) a standalone HTML file with a user-supplied Anthropic API key, sent
 // directly to api.anthropic.com using Anthropic's CORS support for browser
 // requests (the anthropic-dangerous-direct-browser-access header). Without
-// either, the call fails — surfaced clearly rather than retried or hidden.
+// either, the call fails, surfaced clearly rather than retried or hidden.
 async function callClaudeForInsight(prompt, apiKey) {
   const headers = {
     "Content-Type": "application/json"
@@ -3188,7 +3164,7 @@ async function callClaudeForInsight(prompt, apiKey) {
   }
   if (!response.ok) {
     if (response.status === 401 || response.status === 403) {
-      throw new Error(apiKey ? "Authentication failed — double-check the API key below is correct and has available credit." : "AI API authentication failed. This feature requires either running inside Claude.ai as an artifact, or your own Anthropic API key entered below.");
+      throw new Error(apiKey ? "Authentication failed, double-check the API key below is correct and has available credit." : "AI API authentication failed. This feature requires either running inside Claude.ai as an artifact, or your own Anthropic API key entered below.");
     }
     throw new Error(`API request failed with status ${response.status}.`);
   }
@@ -3294,13 +3270,13 @@ function AIInsightsTab({
     setKeyStatus("Key removed from this browser.");
   }
 
-  // No auto-generation — summaries only run when the user explicitly clicks
+  // No auto-generation, summaries only run when the user explicitly clicks
   // Refresh, keeping API usage fully under manual control. The "data changed"
   // badge will still appear when the underlying data has been updated since the
   // last summary, so it's clear when a refresh would be useful.
 
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(SectionLabel, {
-    text: "AI Insights — Per-Pillar Summaries",
+    text: "AI Insights, Per-Pillar Summaries",
     color: "#60A5FA"
   }), /*#__PURE__*/React.createElement(Card, {
     style: {
@@ -3319,7 +3295,7 @@ function AIInsightsTab({
     style: {
       color: "#60A5FA"
     }
-  }, "↻ Refresh"), " — nothing runs automatically, so API usage stays fully in your hands. A ", /*#__PURE__*/React.createElement("strong", {
+  }, "↻ Refresh"), " ,  nothing runs automatically, so API usage stays fully in your hands. A ", /*#__PURE__*/React.createElement("strong", {
     style: {
       color: C.amber
     }
@@ -3340,7 +3316,7 @@ function AIInsightsTab({
     style: {
       color: C.amber
     }
-  }, "Note:"), " AI generation works automatically inside Claude.ai as an artifact — no setup needed. Opened this as a standalone HTML file instead? Add your own Anthropic API key below to enable it there too.")), /*#__PURE__*/React.createElement(Card, {
+  }, "Note:"), " AI generation works automatically inside Claude.ai as an artifact, no setup needed. Opened this as a standalone HTML file instead? Add your own Anthropic API key below to enable it there too.")), /*#__PURE__*/React.createElement(Card, {
     style: {
       marginBottom: 20
     }
@@ -3370,14 +3346,14 @@ function AIInsightsTab({
       color: C.muted,
       lineHeight: 1.6
     }
-  }, apiKey ? "Generation is using your own key, stored only in this browser's local storage — never sent anywhere except directly to Anthropic. Remove it any time." : /*#__PURE__*/React.createElement(React.Fragment, null, "Paste a key from ", /*#__PURE__*/React.createElement("a", {
+  }, apiKey ? "Generation is using your own key, stored only in this browser's local storage, never sent anywhere except directly to Anthropic. Remove it any time." : /*#__PURE__*/React.createElement(React.Fragment, null, "Paste a key from ", /*#__PURE__*/React.createElement("a", {
     href: "https://console.anthropic.com",
     target: "_blank",
     rel: "noopener noreferrer",
     style: {
       color: "#60A5FA"
     }
-  }, "console.anthropic.com"), " to enable AI Insights outside Claude.ai. It's stored only in this browser's local storage and sent directly to Anthropic's API — never anywhere else, and you can remove it at any time."))), apiKey && /*#__PURE__*/React.createElement("button", {
+  }, "console.anthropic.com"), " to enable AI Insights outside Claude.ai. It's stored only in this browser's local storage and sent directly to Anthropic's API, never anywhere else, and you can remove it at any time."))), apiKey && /*#__PURE__*/React.createElement("button", {
     onClick: handleClearKey,
     style: {
       padding: "6px 14px",
@@ -3481,7 +3457,7 @@ function AIInsightsTab({
         fontWeight: 700,
         color: C.text
       }
-    }, tabInfo.label.replace(/^.—\s*/, "")), isStale && !isLoading && /*#__PURE__*/React.createElement("span", {
+    }, tabInfo.label.replace(/^., \s*/, "")), isStale && !isLoading && /*#__PURE__*/React.createElement("span", {
       style: {
         fontSize: 9,
         fontFamily: "'Special Gothic',system-ui,-apple-system,sans-serif",
@@ -3582,7 +3558,7 @@ function AIInsightsTab({
 // ── DAILY BRIEF ────────────────────────────────────────────────────────────────
 // A rule-based (non-AI) shopfloor-meeting-style summary, built directly from
 // whatever data is currently live in each pillar. Unlike AI Insights, this
-// requires no API call — it's deterministic logic mirroring how a Lean analyst
+// requires no API call, it's deterministic logic mirroring how a Lean analyst
 // reads this dashboard for a daily stand-up: latest data point, anything overdue,
 // the single biggest category, and one suggested talking point per pillar.
 // Because it's pure JS over the data shape, it works identically in the
@@ -3610,21 +3586,21 @@ function buildDailyBrief(allData) {
     if (latest) {
       const delta = prev ? latest.reports - prev.reports : null;
       if (delta != null && delta > 0) {
-        points.push(`We logged ${latest.reports} near-miss reports in ${latest.mo} — up ${delta} on ${prev.mo}, which is the trend we want to see.`);
+        points.push(`We logged ${latest.reports} hazard and near-miss reports in ${latest.mo} ,  up ${delta} on ${prev.mo}, which is the trend we want to see.`);
       } else if (delta != null && delta < 0) {
-        points.push(`${latest.reports} near-miss reports came in for ${latest.mo}, a bit lower than ${prev.mo} (down ${Math.abs(delta)}) — worth a quick check it's not just quieter reporting rather than a quieter floor.`);
+        points.push(`${latest.reports} hazard and near-miss reports came in for ${latest.mo}, a bit lower than ${prev.mo} (down ${Math.abs(delta)}), worth a quick check it's not just quieter reporting rather than a quieter floor.`);
       } else {
         points.push(`${latest.reports} near-miss reports logged in ${latest.mo}.`);
       }
     }
-    if (closeRateStat) points.push(`We're closing these out well — ${closeRateStat.val} close rate (${closeRateStat.sub}).`);
+    if (closeRateStat) points.push(`We're closing these out well, ${closeRateStat.val} close rate (${closeRateStat.sub}).`);
     if (openQec.length > 0) {
       points.push(`${openQec.length === 1 ? "One worker's" : `${openQec.length} workers'`} QEC ergonomic assessment${openQec.length === 1 ? "" : "s"} came back flagged: ${openQec.map(r => r.bay).join(", ")}.`);
     }
     sections.push({
       id: "S",
       title: "Safety",
-      talkingPoint: openQec.length > 0 ? `Let's get a proper action plan together for ${openQec.map(r => r.bay).join(", ")} — flagging it once isn't enough, someone needs to own the fix.` : "Nothing flashing red on safety today — good moment to say thanks and keep the reporting habit going.",
+      talkingPoint: openQec.length > 0 ? `Let's get a proper action plan together for ${openQec.map(r => r.bay).join(", ")} ,  flagging it once isn't enough, someone needs to own the fix.` : "Nothing flashing red on safety today, good moment to say thanks and keep the reporting habit going.",
       points
     });
   }
@@ -3638,7 +3614,7 @@ function buildDailyBrief(allData) {
     const topFault = (q.faults || []).slice().sort((a, b) => b.pct - a.pct)[0];
     const points = [];
     if (fpyRow) points.push(`First pass yield is sitting at ${fpyRow.fpy}% as of ${fpyRow.wk}.`);
-    if (topFault) points.push(`${topFault.name} is still our biggest headache — ${topFault.pct}% of all faults trace back to it.`);
+    if (topFault) points.push(`${topFault.name} is still our biggest headache, ${topFault.pct}% of all faults trace back to it.`);
     if (overdue.length > 0) {
       points.push(`We've got ${overdue.length} item${overdue.length === 1 ? "" : "s"} that should already be done: ${overdue.map(a => `#${a.no} ${a.area} (${a.issue})`).join("; ")}.`);
     }
@@ -3648,7 +3624,7 @@ function buildDailyBrief(allData) {
     sections.push({
       id: "Q",
       title: "Quality",
-      talkingPoint: overdue.length > 0 ? `Let's not leave the room until ${overdue.length === 1 ? "that overdue item has" : "those overdue items have"} a name and a date against ${overdue.length === 1 ? "it" : "them"}.` : "No overdue actions right now — just double-check the open ones still have an owner.",
+      talkingPoint: overdue.length > 0 ? `Let's not leave the room until ${overdue.length === 1 ? "that overdue item has" : "those overdue items have"} a name and a date against ${overdue.length === 1 ? "it" : "them"}.` : "No overdue actions right now, just double-check the open ones still have an owner.",
       points
     });
   }
@@ -3663,16 +3639,16 @@ function buildDailyBrief(allData) {
     if (latest) {
       const vsTarget = latest.actual - latest.target;
       if (vsTarget <= 0) {
-        points.push(`Good news on scrap — ${latest.mo} came in at ${fmt(latest.actual)}, which is ${fmt(Math.abs(vsTarget))} under our ${fmt(latest.target)} target.`);
+        points.push(`Good news on scrap, ${latest.mo} came in at ${fmt(latest.actual)}, which is ${fmt(Math.abs(vsTarget))} under our ${fmt(latest.target)} target.`);
       } else {
-        points.push(`Scrap ran over in ${latest.mo} — ${fmt(latest.actual)} against a ${fmt(latest.target)} target, so ${fmt(vsTarget)} over where we wanted to be.`);
+        points.push(`Scrap ran over in ${latest.mo} ,  ${fmt(latest.actual)} against a ${fmt(latest.target)} target, so ${fmt(vsTarget)} over where we wanted to be.`);
       }
     }
     if (latest && prev) {
       if (latest.actual < prev.actual) {
         points.push(`That's an improvement on ${prev.mo}, when we were at ${fmt(prev.actual)}.`);
       } else if (latest.actual > prev.actual) {
-        points.push(`That's a step backward from ${prev.mo} (${fmt(prev.actual)}) — worth asking what changed.`);
+        points.push(`That's a step backward from ${prev.mo} (${fmt(prev.actual)}), worth asking what changed.`);
       } else {
         points.push(`Pretty much flat compared to ${prev.mo}.`);
       }
@@ -3680,7 +3656,7 @@ function buildDailyBrief(allData) {
     sections.push({
       id: "C",
       title: "Cost",
-      talkingPoint: latest && latest.actual > latest.target ? "We should dig into why we went over before next meeting — catch it early rather than let it drift." : "Nothing to chase here — quick win, worth a mention and move on.",
+      talkingPoint: latest && latest.actual > latest.target ? "We should dig into why we went over before next meeting, catch it early rather than let it drift." : "Nothing to chase here, quick win, worth a mention and move on.",
       points
     });
   }
@@ -3694,19 +3670,19 @@ function buildDailyBrief(allData) {
     if (latest) {
       const eff = latest.eff ?? (latest.in > 0 ? Number((latest.out / latest.in * 100).toFixed(1)) : null);
       if (eff != null) {
-        points.push(`${latest.mo}: ${latest.in} vans in, ${latest.out} out — ${eff}% flow efficiency.`);
+        points.push(`${latest.mo}: ${latest.in} vans in, ${latest.out} out, ${eff}% flow efficiency.`);
       } else {
         points.push(`${latest.mo}: ${latest.in} vans in, ${latest.out} out.`);
       }
     }
     const worst = flow.slice().filter(r => r.eff != null).sort((a, b) => a.eff - b.eff)[0];
     if (worst && flow.length > 1 && latest && worst.mo !== latest.mo) {
-      points.push(`The softest month in this stretch was ${worst.mo} at ${worst.eff}% — already understood as planned downtime rather than a process issue.`);
+      points.push(`The softest month in this stretch was ${worst.mo} at ${worst.eff}%, already understood as planned downtime rather than a process issue.`);
     }
     sections.push({
       id: "D",
       title: "Delivery",
-      talkingPoint: latest && (latest.eff ?? 100) < 95 ? `${latest.mo} dipped under 95% — worth a quick "do we know why" before anyone reads too much into it.` : "Flow's holding up well — nothing needed from the room today.",
+      talkingPoint: latest && (latest.eff ?? 100) < 95 ? `${latest.mo} dipped under 95%, worth a quick "do we know why" before anyone reads too much into it.` : "Flow's holding up well, nothing needed from the room today.",
       points
     });
   }
@@ -3718,13 +3694,13 @@ function buildDailyBrief(allData) {
     const matrixEnd = (p.stats || []).find(x => /matrix end/i.test(x.label));
     const weakestSkill = (p.skills || []).slice().sort((a, b) => a.after - b.after)[0];
     const points = [];
-    if (matrixEnd) points.push(`Skills matrix is at ${matrixEnd.val} coverage now (${matrixEnd.sub}) — good progress over time.`);
-    if (crossFn) points.push(`${crossFn.val} of the team can cover more than one role (${crossFn.sub}).`);
+    if (matrixEnd) points.push(`Skills matrix is at ${matrixEnd.val} coverage now (${matrixEnd.sub}), good progress over time.`);
+    if (crossFn) points.push(`${crossFn.val} of processes have three or more trained people (${crossFn.sub}).`);
     if (weakestSkill) points.push(`${weakestSkill.area} is our least-covered area right now, at ${weakestSkill.after}%.`);
     sections.push({
       id: "P",
       title: "People",
-      talkingPoint: crossFn && parseFloat(crossFn.val) < 50 ? "Worth raising if absence cover's been tight lately — under half the team can step into a second role." : "Cross-training's in a healthy spot — nothing urgent here.",
+      talkingPoint: crossFn && parseFloat(crossFn.val) < 50 ? "Worth raising if absence cover's been tight lately, under half the processes have three or more trained people." : "Cross-training's in a healthy spot, nothing urgent here.",
       points
     });
   }
@@ -3739,12 +3715,12 @@ function DailyBriefTab({
   sections.forEach(s => {
     if (s.id === "Q") {
       (allData.Q?.actions || []).filter(a => a.status === "Overdue").forEach(a => {
-        actionItems.push(`#${a.no} ${a.area} — ${a.issue}`);
+        actionItems.push(`#${a.no} ${a.area} ,  ${a.issue}`);
       });
     }
   });
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(SectionLabel, {
-    text: "Daily Brief — Shopfloor Meeting Summary",
+    text: "Daily Brief, Shopfloor Meeting Summary",
     color: "#F472B6"
   }), /*#__PURE__*/React.createElement(Card, {
     style: {
@@ -3765,7 +3741,7 @@ function DailyBriefTab({
       fontSize: 12,
       lineHeight: 1.6
     }
-  }, "This reads the room the way you would before a stand-up: what's changed, what needs chasing, and what's worth a quick mention. No AI call here — just the live numbers, talked through."), /*#__PURE__*/React.createElement("button", {
+  }, "This reads the room the way you would before a stand-up: what's changed, what needs chasing, and what's worth a quick mention. No AI call here, just the live numbers, talked through."), /*#__PURE__*/React.createElement("button", {
     onClick: () => setGeneratedAt(new Date()),
     style: {
       padding: "6px 14px",
@@ -3871,7 +3847,7 @@ function DailyBriefTab({
   })));
 }
 
-// ── SCORECARD — cross-pillar executive summary ────────────────────────────────
+// ── SCORECARD, cross-pillar executive summary ────────────────────────────────
 const STATUS_COLORS = {
   "Strong": C.green,
   "On Track": C.accent,
@@ -3880,7 +3856,7 @@ const STATUS_COLORS = {
 };
 const SCORE_COLOR = TABS.find(t => t.id === "SCORE").color;
 
-// Curated headline read for each SQCDP pillar. Scores (0–100) are my own judgement, not measured, and are shown as such
+// Curated headline read for each SQCDP pillar. Scores (0 to 100) are my own judgement, not measured, and are shown as such
 // roll-up of each pillar's evidence, used only for the comparison radar.
 const SCORECARD = [{
   id: "S",
@@ -3932,7 +3908,7 @@ const SCORECARD = [{
     val: "£5,729",
     label: "Mar actual"
   }],
-  note: "From over-budget in Oct to £14k under by March."
+  note: "From over budget in October to £12,956 under over the six months."
 }, {
   id: "D",
   title: "Delivery",
@@ -4226,7 +4202,7 @@ function ScorecardTab({
   })));
 }
 
-// ── SNAPSHOT TRENDS — compare uploaded versions over time ─────────────────────
+// ── SNAPSHOT TRENDS, compare uploaded versions over time ─────────────────────
 const TREND_COLOR = TABS.find(t => t.id === "TRENDS").color;
 const numVal = v => {
   const n = Number(String(v ?? "").replace(/[£,%\s]/g, ""));
@@ -4366,7 +4342,7 @@ function TrendsTab({
       style: {
         color: C.text
       }
-    }, "Upload Data"), " panel, it's saved here as a versioned snapshot. Once you have one or more uploads, this view charts how each metric moves from the original baseline through every upload — so you can show progress over time."), /*#__PURE__*/React.createElement("div", {
+    }, "Upload Data"), " panel, it's saved here as a versioned snapshot. Once you have one or more uploads, this view charts how each metric moves from the original baseline through every upload, so you can show progress over time."), /*#__PURE__*/React.createElement("div", {
       style: {
         display: "flex",
         gap: 8,
@@ -4390,7 +4366,7 @@ function TrendsTab({
           fontWeight: 800,
           fontSize: 11
         }
-      }, "Upload to ", t.label.replace(/^.—\s*/, ""), " →");
+      }, "Upload to ", t.label.replace(/^., \s*/, ""), " →");
     }))));
   }
   const sel = available.find(a => a.tabId + "/" + a.ds === selKey) || available[0];
@@ -4495,7 +4471,7 @@ function TrendsTab({
       textTransform: "uppercase",
       marginBottom: 5
     }
-  }, tabInfo.label.replace(/^.—\s*/, ""), " · ", dsLabel), /*#__PURE__*/React.createElement("div", {
+  }, tabInfo.label.replace(/^., \s*/, ""), " · ", dsLabel), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 16,
       fontWeight: 800,
@@ -4551,7 +4527,7 @@ function TrendsTab({
       marginBottom: 12,
       letterSpacing: "0.1em"
     }
-  }, metric.label, " — by Snapshot"), /*#__PURE__*/React.createElement(ResponsiveContainer, {
+  }, metric.label, " ,  by Snapshot"), /*#__PURE__*/React.createElement(ResponsiveContainer, {
     width: "100%",
     height: 250
   }, /*#__PURE__*/React.createElement(BarChart, {
@@ -4653,7 +4629,7 @@ function TrendsTab({
         color: C.muted,
         fontSize: 11
       }
-    }, p.ts ? new Date(p.ts).toLocaleDateString() : "—"), /*#__PURE__*/React.createElement("td", {
+    }, p.ts ? new Date(p.ts).toLocaleDateString() : ", "), /*#__PURE__*/React.createElement("td", {
       style: {
         padding: "7px 10px",
         color: C.muted,
@@ -4675,7 +4651,7 @@ function TrendsTab({
         fontWeight: 700,
         color: dColor
       }
-    }, d == null ? "—" : d === 0 ? "0" : (d > 0 ? "▲ " : "▼ ") + fmtMetric(metric, Math.abs(d))));
+    }, d == null ? ", " : d === 0 ? "0" : (d > 0 ? "▲ " : "▼ ") + fmtMetric(metric, Math.abs(d))));
   })))), /*#__PURE__*/React.createElement("p", {
     style: {
       margin: "12px 0 0",
@@ -4686,7 +4662,7 @@ function TrendsTab({
   }, "Baseline = the dashboard's original figures. Each later row is a saved upload; green Δ means the metric moved the right way for this measure.")));
 }
 
-// ── TWEAKS — editable identity + default landing tab ──────────────────────────
+// ── TWEAKS, editable identity + default landing tab ──────────────────────────
 const TWEAK_KEY = "sqcdp_milburn_tweaks_v1";
 const TWEAK_DEFAULTS = {
   eyebrow: "Interview Evidence Portfolio",
@@ -4874,7 +4850,7 @@ function Dashboard() {
       const existing = prev[tabId]?.[dataset];
 
       // A single-row QEC upload (from the per-worker form importer) means
-      // "add or update this assessment" — merge into the existing table by
+      // "add or update this assessment" ,  merge into the existing table by
       // the full name (worker + task), not just bay. Some forms only record
       // the bay number in the worker field (e.g. "Bay 8"), so two different
       // tasks in the same bay (gas installation vs panel fitting) would
@@ -5025,7 +5001,7 @@ function Dashboard() {
     const renderTab = (t, secondary) => {
       const active = tab === t.id;
       const badge = t.id === "BRIEF" ? "DB" : t.id;
-      const plainLabel = t.label.replace(/^\S+\s*—\s*/, "");
+      const plainLabel = t.label.replace(/^\S+\s*, \s*/, "");
       const bs = secondary ? 24 : 30; // badge size
       return /*#__PURE__*/React.createElement("button", {
         key: t.id,
@@ -5176,29 +5152,4 @@ try {
 
 
 <script>(function(){var s=document.createElement('style');s.textContent='.rm-disc{max-width:900px;margin:24px auto;padding:0 16px 24px;font:13px/1.5 \'Special Gothic\',system-ui,-apple-system,\'Segoe UI\',Roboto,Arial,sans-serif;color:#c9c8e6;text-align:center}@media print{.rm-disc{color:#000!important}}';document.head.appendChild(s);var p=document.createElement('p');p.className='rm-disc';p.setAttribute('role','note');p.textContent='Portfolio evidence prepared by Richard Milburn. It is not an audit report, a certification or advice.';function go(){document.documentElement.appendChild(p);}if(document.readyState==='complete')go();else addEventListener('load',go);})();</script>
-<!-- Back to portfolio hub: paste this block just before </body> on every dashboard page -->
-<script>
-(function(){
-  if (document.getElementById('hub-link-host')) return;
-  var host = document.createElement('rm-hub-link');
-  host.id = 'hub-link-host';
-  host.style.cssText = 'display:block!important;position:static!important;visibility:visible!important;opacity:1!important;';
-  var root = host.attachShadow({mode:'open'});
-  root.innerHTML =
-    '<style>' +
-    ':host{all:initial}' +
-    'a{position:fixed;left:12px;bottom:12px;z-index:2147483647;display:inline-flex;align-items:center;' +
-    'min-height:44px;padding:0 16px;border-radius:999px;box-sizing:border-box;' +
-    'font:700 14px/1 "Special Gothic",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;' +
-    'color:#f2f1ff;text-decoration:none;background:#1b1946;border:1px solid #8b78ff;' +
-    'box-shadow:0 0 18px rgba(139,92,246,.55);pointer-events:auto;cursor:pointer;-webkit-tap-highlight-color:transparent}' +
-    'a:hover,a:focus-visible{border-color:#22d3ee;outline:2px solid #22d3ee;outline-offset:2px}' +
-    '@media print{a{display:none}}' +
-    '</style>' +
-    '<a href="https://rmilburn1980.github.io/" target="_top" aria-label="Back to Richard Milburn\'s portfolio hub">← Portfolio hub</a>';
-  /* attach to <html>, not <body>, so a transform or overflow on body cannot trap or clip it */
-  document.documentElement.appendChild(host);
-})();
-</script>
-<noscript><a href="https://rmilburn1980.github.io/" style="position:fixed;left:12px;bottom:12px;padding:12px 16px;background:#1b1946;color:#f2f1ff;border:1px solid #8b78ff;border-radius:999px;font:700 14px "Special Gothic",system-ui,sans-serif;text-decoration:none">&larr; Portfolio hub</a></noscript>
 </body></html>
