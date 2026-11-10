@@ -967,6 +967,7 @@ const Stat = ({
   label,
   val,
   sub,
+  ba,
   color = C.accent
 }) => /*#__PURE__*/React.createElement("div", {
   style: {
@@ -984,7 +985,10 @@ const Stat = ({
     lineHeight: 1,
     marginBottom: 4
   }
-}, val), /*#__PURE__*/React.createElement("div", {
+}, val), ba && /*#__PURE__*/React.createElement(MiniBA, {
+  ba: ba,
+  color: color
+}), /*#__PURE__*/React.createElement("div", {
   style: {
     fontSize: 11,
     fontWeight: 700,
@@ -1263,7 +1267,7 @@ function normalizeKey(s) {
 // Given the parsed rows (array of objects with whatever column names the
 // source file used) and a field-map spec (array of {key, aliases}), returns
 // either { ok:true, rows: <remapped rows using canonical keys> } or
-// { ok:false, missing: [canonical keys not found] } ,  never throws.
+// { ok:false, missing: [canonical keys not found] }, never throws.
 function remapColumns(parsedRows, headerSpecs) {
   if (!parsedRows || parsedRows.length === 0) return {
     ok: false,
@@ -1455,7 +1459,7 @@ function UploadPanel({
           }
           setRaw(csv);
           setError("");
-          setSuccess(`✓ Loaded "${file.name}" ,  sheet "${sheetName}", ${csv.trim().split("\n").length} row(s) found. Click Preview below to continue.`);
+          setSuccess(`✓ Loaded "${file.name}", sheet "${sheetName}", ${csv.trim().split("\n").length} row(s) found. Click Preview below to continue.`);
         } catch (err) {
           setError("Could not read this Excel file: " + err.message);
           setSuccess("");
@@ -1477,7 +1481,7 @@ function UploadPanel({
         }
         setRaw(text);
         setError("");
-        setSuccess(`✓ Loaded "${file.name}" ,  ${text.trim().split("\n").length} line(s) found. Click Preview below to continue.`);
+        setSuccess(`✓ Loaded "${file.name}", ${text.trim().split("\n").length} line(s) found. Click Preview below to continue.`);
       };
       reader.onerror = () => {
         setError("Failed to read the file from disk.");
@@ -1804,7 +1808,7 @@ function UploadPanel({
     style: {
       color: color
     }
-  }, "✓ QEC assessment form (.xlsx) accepted directly"), " ,  upload the original 3-sheet workbook for one worker and the back/shoulder/wrist/neck scores will be read automatically.", /*#__PURE__*/React.createElement("br", null)), /*#__PURE__*/React.createElement("span", {
+  }, "✓ QEC assessment form (.xlsx) accepted directly"), ", upload the original 3-sheet workbook for one worker and the back/shoulder/wrist/neck scores will be read automatically.", /*#__PURE__*/React.createElement("br", null)), /*#__PURE__*/React.createElement("span", {
     style: {
       color: C.dim
     }
@@ -1816,7 +1820,7 @@ function UploadPanel({
     style: {
       color: C.dim
     }
-  }, "Column names are flexible"), " ,  e.g. for \"", current.headers[0].key, "\" we also accept: ", current.headers[0].aliases?.slice(0, 3).join(", ") || ", ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
+  }, "Column names are flexible"), ", e.g. for \"", current.headers[0].key, "\" we also accept: ", current.headers[0].aliases?.slice(0, 3).join(", ") || ", ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
     style: {
       color: C.dim
     }
@@ -1996,7 +2000,117 @@ function UploadPanel({
 const pieColors = [C.accent, C.accentL, C.green, C.dim];
 
 // "Evidence at a Glance" headline stats, drawn from the master portfolio summary.
+
+// ── GRAPHICS ──────────────────────────────────────────────────────────────────
+function MiniBA({ ba, color }) {
+  const h = React.createElement, W = 120, mx = 100;
+  const row = (y, v, strong) => h("g", { key: y }, h("rect", { x: 0, y, width: W, height: 7, rx: 3.5, fill: color, opacity: 0.14 }), h("rect", { x: 0, y, width: Math.max(2, v / mx * W), height: 7, rx: 3.5, fill: color, opacity: strong ? 1 : 0.45 }));
+  return h("svg", { viewBox: "0 0 120 20", "aria-hidden": "true", style: { display: "block", width: "100%", maxWidth: 150, height: "auto", margin: "2px 0 8px" } }, row(0, ba[0], false), row(12, ba[1], true));
+}
+function ReportBars({ data, color }) {
+  const h = React.createElement;
+  if (!data || !data.length) return null;
+  const W = 320, H = 196, x0 = 6, x1 = 314, y0 = 24, y1 = 150;
+  const top = Math.max(10, Math.ceil(Math.max(...data.map(d => d.reports)) / 10) * 10);
+  const bw = (x1 - x0) / data.length, pk = data.reduce((m, d) => d.reports > m.reports ? d : m, data[0]);
+  const first = data[0], last = data[data.length - 1];
+  return h("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": `Bar chart of hazard and near miss reports by month, from ${first.reports} in ${first.mo} to a peak of ${pk.reports} in ${pk.mo}.`, style: { display: "block", width: "100%", maxWidth: 520, height: "auto" } },
+    data.map((d, i) => {
+      const hh = d.reports / top * (y1 - y0), hi = i === 0 || d === pk, x = x0 + i * bw + 3, cx = x + (bw - 6) / 2;
+      return h("g", { key: i },
+        h("rect", { x, y: y1 - hh, width: bw - 6, height: hh, rx: 3, fill: color, opacity: hi ? 1 : 0.4 }),
+        h("text", { x: cx, y: y1 - hh - 5, textAnchor: "middle", fontSize: hi ? 13 : 11.5, fontWeight: hi ? 800 : 500, fill: hi ? C.text : C.muted }, d.reports),
+        h("text", { x: cx, y: y1 + 14, textAnchor: "middle", fontSize: 11, fill: C.muted }, String(d.mo).split(" ")[0]));
+    }),
+    h("line", { x1: x0, x2: x1, y1, y2: y1, stroke: C.border }),
+    h("text", { x: x0 + 3, y: y1 + 31, fontSize: 11, fill: C.muted }, "20" + String(first.mo).split(" ")[1]),
+    h("text", { x: x1 - 3, y: y1 + 31, textAnchor: "end", fontSize: 11, fill: C.muted }, "20" + String(last.mo).split(" ")[1]));
+}
+const ACCIDENT_RATE = [{ label: "Aug 2024 to Mar 2025", v: 2.5, n: 20 }, { label: "Apr 2025 to Feb 2026", v: 1.5, n: 17 }];
+function AccidentBars({ color }) {
+  const h = React.createElement;
+  return h("svg", { viewBox: "0 0 320 96", role: "img", "aria-label": "Bar chart. Site accidents averaged about 2.5 a month from August 2024 to March 2025 and about 1.5 a month from April 2025 to February 2026.", style: { display: "block", width: "100%", maxWidth: 520, height: "auto" } },
+    ACCIDENT_RATE.map((r, i) => {
+      const y = 4 + i * 46, w = r.v / 3 * 230;
+      return h("g", { key: i },
+        h("text", { x: 2, y: y + 11, fontSize: 11, fill: C.muted }, r.label + " (" + r.n + " accidents)"),
+        h("rect", { x: 2, y: y + 17, width: w, height: 16, rx: 4, fill: color, opacity: i ? 1 : 0.4 }),
+        h("text", { x: w + 9, y: y + 30, fontSize: 13, fontWeight: 800, fill: C.text }, r.v + " a month"));
+    }));
+}
+function ShareRing({ mine, total, next, color }) {
+  const h = React.createElement, R = 34, CIRC = 2 * Math.PI * R, pct = Math.round(mine / total * 100);
+  return h("svg", { viewBox: "0 0 320 96", role: "img", "aria-label": `Ring chart. I raised ${mine} of ${total} site reports, ${pct} percent. The next highest reporter raised ${next}.`, style: { display: "block", width: "100%", maxWidth: 520, height: "auto" } },
+    h("circle", { cx: 46, cy: 48, r: R, fill: "none", stroke: color, strokeOpacity: 0.2, strokeWidth: 11 }),
+    h("circle", { cx: 46, cy: 48, r: R, fill: "none", stroke: color, strokeWidth: 11, strokeDasharray: `${CIRC * mine / total} ${CIRC}`, transform: "rotate(-90 46 48)" }),
+    h("text", { x: 46, y: 53, textAnchor: "middle", fontSize: 16, fontWeight: 800, fill: C.text }, pct + "%"),
+    h("text", { x: 104, y: 22, fontSize: 11, fill: C.muted }, "My reports"),
+    h("rect", { x: 104, y: 28, width: 150, height: 14, rx: 4, fill: color }),
+    h("text", { x: 260, y: 40, fontSize: 13, fontWeight: 800, fill: C.text }, mine),
+    h("text", { x: 104, y: 64, fontSize: 11, fill: C.muted }, "Next highest reporter"),
+    h("rect", { x: 104, y: 70, width: 150 * next / mine, height: 14, rx: 4, fill: color, opacity: 0.4 }),
+    h("text", { x: 104 + 150 * next / mine + 6, y: 82, fontSize: 13, fontWeight: 800, fill: C.text }, next));
+}
+function QecBody({ rows }) {
+  const h = React.createElement;
+  if (!rows || !rows.length) return null;
+  const mx = k => Math.max(...rows.map(r => Number(r[k]) || 0));
+  const v = { neck: mx("neck"), shoulder: mx("shoulder"), back: mx("back"), wrist: mx("wrist") };
+  const part = (k, el) => React.cloneElement(el, { key: k, fill: scoreColor(v[k]), fillOpacity: 0.85 });
+  const lab = (k, name, y, tx) => h("g", { key: "l" + k },
+    h("line", { x1: tx, x2: 150, y1: y, y2: y, stroke: C.border }),
+    h("circle", { cx: tx, cy: y, r: 2.5, fill: scoreColor(v[k]) }),
+    h("text", { x: 156, y: y + 4, fontSize: 12, fill: C.muted }, name),
+    h("text", { x: 300, y: y + 4, textAnchor: "end", fontSize: 13, fontWeight: 800, fill: scoreColor(v[k]) }, v[k]));
+  return h("div", { style: { marginTop: 14 } },
+    h("svg", { viewBox: "0 0 320 150", role: "img", "aria-label": `Body outline showing the highest QEC score for each area: neck ${v.neck}, shoulder ${v.shoulder}, back ${v.back}, wrist ${v.wrist}.`, style: { display: "block", width: "100%", maxWidth: 420, height: "auto" } },
+      h("circle", { cx: 70, cy: 18, r: 13, fill: "none", stroke: C.dim, strokeWidth: 2 }),
+      part("neck", h("rect", { x: 64, y: 32, width: 12, height: 10, rx: 3 })),
+      part("shoulder", h("rect", { x: 34, y: 43, width: 72, height: 15, rx: 7 })),
+      part("back", h("rect", { x: 48, y: 60, width: 44, height: 56, rx: 8 })),
+      h("rect", { x: 30, y: 60, width: 11, height: 50, rx: 5, fill: "none", stroke: C.dim, strokeWidth: 2 }),
+      h("rect", { x: 99, y: 60, width: 11, height: 50, rx: 5, fill: "none", stroke: C.dim, strokeWidth: 2 }),
+      part("wrist", h("circle", { cx: 35.5, cy: 119, r: 7.5 })),
+      React.cloneElement(h("circle", { cx: 104.5, cy: 119, r: 7.5 }), { key: "w2", fill: scoreColor(v.wrist), fillOpacity: 0.85 }),
+      h("rect", { x: 52, y: 120, width: 15, height: 26, rx: 5, fill: "none", stroke: C.dim, strokeWidth: 2 }),
+      h("rect", { x: 73, y: 120, width: 15, height: 26, rx: 5, fill: "none", stroke: C.dim, strokeWidth: 2 }),
+      lab("neck", "Neck", 37, 78), lab("shoulder", "Shoulder", 62, 108), lab("back", "Back", 90, 94), lab("wrist", "Wrist", 119, 114)),
+    h("div", { style: { fontSize: 10, color: C.muted, marginTop: 4 } }, "Highest score recorded for each body area across the " + rows.length + " assessments."));
+}
+function PillarIcon({ id, color, size = 26 }) {
+  const h = React.createElement, p = { fill: "none", stroke: color, strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" };
+  const g = {
+    S: [h("path", { key: 1, ...p, d: "M16 3l10 4v7c0 7-4 11-10 14C10 25 6 21 6 14V7z", fill: color, fillOpacity: 0.22 }), h("path", { key: 2, ...p, d: "M11.5 15l3.5 3.5 6-7" })],
+    Q: [h("circle", { key: 1, ...p, cx: 16, cy: 16, r: 12, fill: color, fillOpacity: 0.22 }), h("path", { key: 2, ...p, d: "M10.5 16.5l4 4 7.5-9" })],
+    C: [h("circle", { key: 1, ...p, cx: 16, cy: 16, r: 12, fill: color, fillOpacity: 0.22 }), h("path", { key: 2, ...p, d: "M20 11.5c-1-1.5-2.5-2-4-2-2.5 0-4 1.8-4 4.5v3c0 2-1 3.5-2 4.5h10M10.5 16.5h7" })],
+    D: [h("path", { key: 1, ...p, d: "M3 9h15v12H3z", fill: color, fillOpacity: 0.22 }), h("path", { key: 2, ...p, d: "M18 13h6l5 5v3H18z" }), h("circle", { key: 3, ...p, cx: 9, cy: 23, r: 2.5, fill: C.card }), h("circle", { key: 4, ...p, cx: 23, cy: 23, r: 2.5, fill: C.card })],
+    P: [h("circle", { key: 1, ...p, cx: 11, cy: 11, r: 4.5, fill: color, fillOpacity: 0.22 }), h("path", { key: 2, ...p, d: "M3 26c0-5 3.5-8 8-8s8 3 8 8" }), h("circle", { key: 3, ...p, cx: 22.5, cy: 12, r: 3.5 }), h("path", { key: 4, ...p, d: "M22 19c4 0 7 2.5 7 7" })]
+  }[id];
+  if (!g) return null;
+  return h("svg", { viewBox: "0 0 32 32", width: size, height: size, "aria-hidden": "true", style: { flex: "0 0 auto" } }, g);
+}
+function CostRunning({ rows, color }) {
+  const h = React.createElement;
+  if (!rows || !rows.length) return null;
+  let t = 0, ac = 0;
+  const d = rows.map(r => { t += Number(r.target) || 0; ac += Number(r.actual) || 0; return { mo: r.mo, Budget: t, Actual: ac }; });
+  const gap = t - ac;
+  return h(Card, { style: { marginBottom: 14 } },
+    h("div", { style: { fontFamily: "'Special Gothic',system-ui,-apple-system,sans-serif", fontSize: 10, color: C.muted, marginBottom: 12, letterSpacing: "0.1em" } }, "Running Total, Actual Scrap Against Budget"),
+    h(ResponsiveContainer, { width: "100%", height: 220 },
+      h(LineChart, { data: d, margin: { top: 6, right: 12, bottom: 0, left: 0 } },
+        h(CartesianGrid, { stroke: C.border, strokeDasharray: "3 3" }),
+        h(XAxis, { dataKey: "mo", tick: { fill: C.muted, fontSize: 10 } }),
+        h(YAxis, { tick: { fill: C.muted, fontSize: 10 }, tickFormatter: v => "£" + (v / 1000).toFixed(0) + "k" }),
+        h(Tooltip, { content: h(Tip, { prefix: "£" }) }),
+        h(Legend, { wrapperStyle: { color: C.muted, fontSize: 11 } }),
+        h(Line, { type: "linear", isAnimationActive: false, dataKey: "Budget", stroke: C.muted, strokeWidth: 2, strokeDasharray: "6 4", dot: { fill: C.muted, r: 3 } }),
+        h(Line, { type: "linear", isAnimationActive: false, dataKey: "Actual", stroke: color, strokeWidth: 2.5, dot: { fill: color, r: 4 } }))),
+    h("div", { style: { fontSize: 11, color: C.muted, marginTop: 8 } }, "Actual spend started above budget in the first month and finished " + (gap >= 0 ? "£" + gap.toLocaleString("en-GB") + " under" : "£" + (-gap).toLocaleString("en-GB") + " over") + " the running budget."));
+}
+
 const OVERVIEW_STATS = [{
+  ba: [58, 92],
   label: "First Pass Yield",
   val: "58%→92%",
   sub: "Line FPY: Sep 24 to Mar 25 average, then Jul 25",
@@ -2012,11 +2126,13 @@ const OVERVIEW_STATS = [{
   sub: "323 of 324 closed",
   color: "#10B981"
 }, {
+  ba: [36, 86.6],
   label: "Skills Matrix",
   val: "36%→86.6%",
   sub: "260 processes, 2 years",
   color: "#E8A838"
 }, {
+  ba: [70, 98.8],
   label: "3x3 Programme",
   val: "70%→98.8%",
   sub: "Critical SOPs with 3+ trained",
@@ -2063,7 +2179,7 @@ function OverviewTab({
     style: {
       color: C.text
     }
-  }, "Richard Milburn"), " ,  Cell Leader · Consett, County Durham · 21 years' service · December 2004 to June 2026. Select a pillar below, or use the tab bar above, to explore the full evidence behind each achievement, charts, data, process narratives and interview context. All figures are drawn from internal site data.")), /*#__PURE__*/React.createElement("div", {
+  }, "Richard Milburn"), ", Cell Leader · Consett, County Durham · 21 years' service · December 2004 to June 2026. Select a pillar below, or use the tab bar above, to explore the full evidence behind each achievement, charts, data, process narratives and interview context. All figures are drawn from internal site data.")), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "grid",
       gridTemplateColumns: "repeat(auto-fit,minmax(150px,1fr))",
@@ -2100,9 +2216,15 @@ function OverviewTab({
       fontSize: 20,
       fontWeight: 900,
       color: t.color,
-      marginBottom: 6
+      marginBottom: 6,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between"
     }
-  }, t.id), /*#__PURE__*/React.createElement("div", {
+  }, t.id, /*#__PURE__*/React.createElement(PillarIcon, {
+    id: t.id,
+    color: t.color
+  })), /*#__PURE__*/React.createElement("div", {
     style: {
       fontSize: 12,
       fontWeight: 700,
@@ -2188,44 +2310,10 @@ function SafetyTab({
       marginBottom: 12,
       letterSpacing: "0.1em"
     }
-  }, "Hazard and Near-Miss Reports, Site-Wide by Month"), /*#__PURE__*/React.createElement(ResponsiveContainer, {
-    width: "100%",
-    height: 190
-  }, /*#__PURE__*/React.createElement(LineChart, {
+  }, "Hazard and Near-Miss Reports, Site-Wide by Month"), /*#__PURE__*/React.createElement(ReportBars, {
     data: data.trend,
-    margin: {
-      top: 4,
-      right: 8,
-      bottom: 0,
-      left: -20
-    }
-  }, /*#__PURE__*/React.createElement(CartesianGrid, {
-    stroke: C.border,
-    strokeDasharray: "3 3"
-  }), /*#__PURE__*/React.createElement(XAxis, {
-    dataKey: "mo",
-    tick: {
-      fill: C.muted,
-      fontSize: 10
-    }
-  }), /*#__PURE__*/React.createElement(YAxis, {
-    tick: {
-      fill: C.muted,
-      fontSize: 10
-    }
-  }), /*#__PURE__*/React.createElement(Tooltip, {
-    content: /*#__PURE__*/React.createElement(Tip, null)
-  }), /*#__PURE__*/React.createElement(Line, {
-    type: "monotone",
-    dataKey: "reports",
-    name: "Reports",
-    stroke: color,
-    strokeWidth: 2.5,
-    dot: {
-      fill: color,
-      r: 4
-    }
-  })))), /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement("div", {
+    color: color
+  })), /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: "'Special Gothic',system-ui,-apple-system,sans-serif",
       fontSize: 10,
@@ -2291,7 +2379,9 @@ function SafetyTab({
       fontWeight: 800,
       color: scoreColor(s)
     }
-  }, s)))))))), /*#__PURE__*/React.createElement("div", {
+  }, s)))))))), /*#__PURE__*/React.createElement(QecBody, {
+    rows: data.qec
+  }), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       gap: 10,
@@ -2314,7 +2404,47 @@ function SafetyTab({
       borderRadius: 2,
       background: c
     }
-  }), l, " ", r))))), /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement("p", {
+  }), l, " ", r))))), /*#__PURE__*/React.createElement("div", {
+    className: "sqcdp-g2",
+    style: {
+      marginBottom: 14
+    }
+  }, /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Special Gothic',system-ui,-apple-system,sans-serif",
+      fontSize: 10,
+      color: C.muted,
+      marginBottom: 12,
+      letterSpacing: "0.1em"
+    }
+  }, "Site Accidents a Month, on Average"), /*#__PURE__*/React.createElement(AccidentBars, {
+    color: color
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: C.muted,
+      marginTop: 6
+    }
+  }, "By date of occurrence in the SafetyQube export.")), /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Special Gothic',system-ui,-apple-system,sans-serif",
+      fontSize: 10,
+      color: C.muted,
+      marginBottom: 12,
+      letterSpacing: "0.1em"
+    }
+  }, "My Share of Site Reports"), /*#__PURE__*/React.createElement(ShareRing, {
+    mine: 108,
+    total: 324,
+    next: 52,
+    color: color
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      color: C.muted,
+      marginTop: 6
+    }
+  }, "108 of 324 reports, April 2025 to March 2026."))), /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0,
       color: C.muted,
@@ -2791,7 +2921,10 @@ function CostTab({
     style: {
       color: C.text
     }
-  }, fmt(e.value))))))), /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement("p", {
+  }, fmt(e.value))))))), /*#__PURE__*/React.createElement(CostRunning, {
+    rows: data.scrap,
+    color: color
+  }), /*#__PURE__*/React.createElement(Card, null, /*#__PURE__*/React.createElement("p", {
     style: {
       margin: 0,
       color: C.muted,
@@ -3295,7 +3428,7 @@ function AIInsightsTab({
     style: {
       color: "#60A5FA"
     }
-  }, "↻ Refresh"), " ,  nothing runs automatically, so API usage stays fully in your hands. A ", /*#__PURE__*/React.createElement("strong", {
+  }, "↻ Refresh"), ", nothing runs automatically, so API usage stays fully in your hands. A ", /*#__PURE__*/React.createElement("strong", {
     style: {
       color: C.amber
     }
@@ -3586,7 +3719,7 @@ function buildDailyBrief(allData) {
     if (latest) {
       const delta = prev ? latest.reports - prev.reports : null;
       if (delta != null && delta > 0) {
-        points.push(`We logged ${latest.reports} hazard and near-miss reports in ${latest.mo} ,  up ${delta} on ${prev.mo}, which is the trend we want to see.`);
+        points.push(`We logged ${latest.reports} hazard and near-miss reports in ${latest.mo}, up ${delta} on ${prev.mo}, which is the trend we want to see.`);
       } else if (delta != null && delta < 0) {
         points.push(`${latest.reports} hazard and near-miss reports came in for ${latest.mo}, a bit lower than ${prev.mo} (down ${Math.abs(delta)}), worth a quick check it's not just quieter reporting rather than a quieter floor.`);
       } else {
@@ -3600,7 +3733,7 @@ function buildDailyBrief(allData) {
     sections.push({
       id: "S",
       title: "Safety",
-      talkingPoint: openQec.length > 0 ? `Let's get a proper action plan together for ${openQec.map(r => r.bay).join(", ")} ,  flagging it once isn't enough, someone needs to own the fix.` : "Nothing flashing red on safety today, good moment to say thanks and keep the reporting habit going.",
+      talkingPoint: openQec.length > 0 ? `Let's get a proper action plan together for ${openQec.map(r => r.bay).join(", ")}, flagging it once isn't enough, someone needs to own the fix.` : "Nothing flashing red on safety today, good moment to say thanks and keep the reporting habit going.",
       points
     });
   }
@@ -3641,7 +3774,7 @@ function buildDailyBrief(allData) {
       if (vsTarget <= 0) {
         points.push(`Good news on scrap, ${latest.mo} came in at ${fmt(latest.actual)}, which is ${fmt(Math.abs(vsTarget))} under our ${fmt(latest.target)} target.`);
       } else {
-        points.push(`Scrap ran over in ${latest.mo} ,  ${fmt(latest.actual)} against a ${fmt(latest.target)} target, so ${fmt(vsTarget)} over where we wanted to be.`);
+        points.push(`Scrap ran over in ${latest.mo}, ${fmt(latest.actual)} against a ${fmt(latest.target)} target, so ${fmt(vsTarget)} over where we wanted to be.`);
       }
     }
     if (latest && prev) {
@@ -3715,7 +3848,7 @@ function DailyBriefTab({
   sections.forEach(s => {
     if (s.id === "Q") {
       (allData.Q?.actions || []).filter(a => a.status === "Overdue").forEach(a => {
-        actionItems.push(`#${a.no} ${a.area} ,  ${a.issue}`);
+        actionItems.push(`#${a.no} ${a.area}, ${a.issue}`);
       });
     }
   });
@@ -4527,7 +4660,7 @@ function TrendsTab({
       marginBottom: 12,
       letterSpacing: "0.1em"
     }
-  }, metric.label, " ,  by Snapshot"), /*#__PURE__*/React.createElement(ResponsiveContainer, {
+  }, metric.label, ", by Snapshot"), /*#__PURE__*/React.createElement(ResponsiveContainer, {
     width: "100%",
     height: 250
   }, /*#__PURE__*/React.createElement(BarChart, {
@@ -4850,7 +4983,7 @@ function Dashboard() {
       const existing = prev[tabId]?.[dataset];
 
       // A single-row QEC upload (from the per-worker form importer) means
-      // "add or update this assessment" ,  merge into the existing table by
+      // "add or update this assessment", merge into the existing table by
       // the full name (worker + task), not just bay. Some forms only record
       // the bay number in the worker field (e.g. "Bay 8"), so two different
       // tasks in the same bay (gas installation vs panel fitting) would
@@ -4891,6 +5024,7 @@ function Dashboard() {
         .sqcdp-tab { flex:1; min-width:0; }
         .sqcdp-tab .tab-label { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
         .sqcdp-g2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+        .sqcdp-g2 > *, .sqcdp-g32 > * { min-width:0; }
         .sqcdp-g32 { display:grid; grid-template-columns:3fr 2fr; gap:14px; }
         .sqcdp-gscore { display:grid; grid-template-columns:minmax(220px,0.9fr) 1.1fr; gap:14px; }
         @media (max-width:760px) {
