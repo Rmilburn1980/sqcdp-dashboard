@@ -465,9 +465,9 @@ const C = {
   accentL: "#67e8f9",
   gold: "#FFB800",
   green: "#00E68A",
-  red: "#FF3B5C",
+  red: "#FF5A75",
   amber: "#FFB800",
-  purple: "#A855F7",
+  purple: "#B57AF9",
   text: "#f2f1ff",
   muted: "#bcbbdc",
   dim: "#a3a2c8"
@@ -497,7 +497,7 @@ const TABS = [{
 }, {
   id: "D",
   label: "D, Delivery",
-  color: "#A855F7"
+  color: "#B57AF9"
 }, {
   id: "P",
   label: "P, People",
@@ -921,9 +921,9 @@ const DEFAULTS = {
 };
 
 // ── HELPERS ──────────────────────────────────────────────────────────────────
-const scoreColor = s => s >= 30 ? C.red : s >= 23 ? "#EF4444" : s >= 15 ? C.amber : C.green;
+const scoreColor = s => s >= 30 ? C.red : s >= 23 ? "#FF8066" : s >= 15 ? C.amber : C.green;
 const scoreLabel = s => s >= 30 ? "Very High" : s >= 23 ? "High" : s >= 15 ? "Moderate" : "Low";
-const fmt = n => "£" + Number(n).toLocaleString();
+const fmt = n => "£" + Number(n).toLocaleString("en-GB");
 
 // parse CSV/TSV text → array of objects using first row as headers
 function parseCsv(text) {
@@ -1050,7 +1050,7 @@ const Tip = ({
     style: {
       color: p.color || C.text
     }
-  }, p.name, ": ", prefix, p.value != null ? Number(p.value).toLocaleString() : ", ", suffix)));
+  }, p.name, ": ", prefix, p.value != null ? Number(p.value).toLocaleString("en-GB") : ", ", suffix)));
 };
 
 // ── STORAGE HELPERS ───────────────────────────────────────────────────────────
@@ -1545,7 +1545,7 @@ function UploadPanel({
   }
   function handleRevert(snapshot) {
     onUpdate(tabId, dataset, snapshot.rows);
-    setSuccess(`✓ Reverted to: ${snapshot.label} (${new Date(snapshot.ts).toLocaleString()})`);
+    setSuccess(`✓ Reverted to: ${snapshot.label} (${new Date(snapshot.ts).toLocaleString("en-GB")})`);
     setShowHistory(false);
   }
   function handleRevertToDefault() {
@@ -1743,7 +1743,7 @@ function UploadPanel({
       fontSize: 10,
       color: C.muted
     }
-  }, snap.rows.length, " rows · ", new Date(snap.ts).toLocaleString())), i !== snapshots.length - 1 && /*#__PURE__*/React.createElement("button", {
+  }, snap.rows.length, " rows · ", new Date(snap.ts).toLocaleString("en-GB"))), i !== snapshots.length - 1 && /*#__PURE__*/React.createElement("button", {
     onClick: () => handleRevert(snap),
     style: {
       padding: "4px 12px",
@@ -2318,6 +2318,9 @@ function SafetyTab({
       letterSpacing: "0.1em"
     }
   }, "QEC Ergonomic Exposure Heat Map"), /*#__PURE__*/React.createElement("div", {
+    tabIndex: 0,
+    role: "region",
+    "aria-label": "Table, scrolls sideways",
     style: {
       overflowX: "auto"
     }
@@ -2384,7 +2387,7 @@ function SafetyTab({
       marginTop: 10,
       flexWrap: "wrap"
     }
-  }, [["Low", "0 to 14", C.green], ["Moderate", "15 to 22", C.amber], ["High", "23 to 29", "#EF4444"], ["Very High", "30+", C.red]].map(([l, r, c]) => /*#__PURE__*/React.createElement("div", {
+  }, [["Low", "0 to 14", C.green], ["Moderate", "15 to 22", C.amber], ["High", "23 to 29", "#FF8066"], ["Very High", "30+", C.red]].map(([l, r, c]) => /*#__PURE__*/React.createElement("div", {
     key: l,
     style: {
       display: "flex",
@@ -2640,6 +2643,9 @@ function QualityTab({
       }
     }, n, " ", s);
   }))), /*#__PURE__*/React.createElement("div", {
+    tabIndex: 0,
+    role: "region",
+    "aria-label": "Table, scrolls sideways",
     style: {
       overflowX: "auto"
     }
@@ -2765,7 +2771,7 @@ function QualityTab({
       fontFamily: "'Special Gothic',system-ui,-apple-system,sans-serif",
       fontSize: 18,
       fontWeight: 900,
-      color: color + "55",
+      color: color,
       marginBottom: 4
     }
   }, step.n), /*#__PURE__*/React.createElement("div", {
@@ -2884,8 +2890,9 @@ function CostTab({
     cx: "50%",
     cy: "50%",
     outerRadius: 70
-  }, data.pie.map((_, i) => /*#__PURE__*/React.createElement(Cell, {
+  }, data.pie.map((e, i) => /*#__PURE__*/React.createElement(Cell, {
     key: i,
+    "aria-label": e.name + ": " + fmt(e.value),
     fill: pieColors[i % 4]
   }))), /*#__PURE__*/React.createElement(Tooltip, {
     formatter: v => fmt(v)
@@ -3680,7 +3687,7 @@ function AIInsightsTab({
         color: C.dim,
         fontFamily: "'Special Gothic',system-ui,-apple-system,sans-serif"
       }
-    }, "Generated ", new Date(entry.generatedAt).toLocaleString())));
+    }, "Generated ", new Date(entry.generatedAt).toLocaleString("en-GB"))));
   })));
 }
 
@@ -3892,7 +3899,7 @@ function DailyBriefTab({
       color: C.dim,
       fontFamily: "'Special Gothic',system-ui,-apple-system,sans-serif"
     }
-  }, "Last put together ", generatedAt.toLocaleString())), actionItems.length > 0 && /*#__PURE__*/React.createElement(Card, {
+  }, "Last put together ", generatedAt.toLocaleString("en-GB"))), actionItems.length > 0 && /*#__PURE__*/React.createElement(Card, {
     style: {
       marginBottom: 20,
       borderLeft: `3px solid ${C.red}`
@@ -4417,7 +4424,7 @@ const TREND_METRICS = {
   }
 };
 function fmtMetric(m, v) {
-  if (m.money) return "£" + Math.round(v).toLocaleString();
+  if (m.money) return "£" + Math.round(v).toLocaleString("en-GB");
   const r = Math.round(v * 10) / 10;
   if (m.unit === "%") return r + "%";
   return String(r).replace(/\.0$/, "");
@@ -4706,6 +4713,9 @@ function TrendsTab({
       letterSpacing: "0.1em"
     }
   }, "Snapshot Detail"), /*#__PURE__*/React.createElement("div", {
+    tabIndex: 0,
+    role: "region",
+    "aria-label": "Table, scrolls sideways",
     style: {
       overflowX: "auto"
     }
@@ -4758,7 +4768,7 @@ function TrendsTab({
         color: C.muted,
         fontSize: 11
       }
-    }, p.ts ? new Date(p.ts).toLocaleDateString() : ", "), /*#__PURE__*/React.createElement("td", {
+    }, p.ts ? new Date(p.ts).toLocaleDateString("en-GB") : ", "), /*#__PURE__*/React.createElement("td", {
       style: {
         padding: "7px 10px",
         color: C.muted,
@@ -4798,7 +4808,7 @@ const TWEAK_DEFAULTS = {
   name: "Richard Milburn",
   subtitle: "Health & Safety · Continuous Improvement · 21 yrs Manufacturing",
   footer: "Richard Milburn · H&S / CI",
-  defaultTab: "BRIEF"
+  defaultTab: "O"
 };
 function loadTweaks() {
   try {
@@ -4955,7 +4965,7 @@ function TweaksPanel({
 // ── ROOT ──────────────────────────────────────────────────────────────────────
 function Dashboard() {
   const [tweaks, setTweaks] = useState(() => loadTweaks());
-  const [tab, setTab] = useState(() => loadTweaks().defaultTab || "BRIEF");
+  const [tab, setTab] = useState(() => loadTweaks().defaultTab || "O");
   const [allData, setAllData] = useState(() => buildInitialData());
   function updateTweak(key, value) {
     setTweaks(prev => {
